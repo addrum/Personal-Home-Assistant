@@ -1,0 +1,111 @@
+# Views
+default_view:
+  name: default_view
+  view: true
+  entities:
+    - group.all_lights
+    - group.date_time
+    - group.all_automations
+    - media_player.spotify
+    - media_player.tv
+    - media_player.living_room_home
+    - media_player.panasonic_viera_tv
+    - group.bitcoin_stats
+    - group.pi_stats
+
+devices:
+  name: Devices
+  view: true
+  entities:
+    - group.all_devices
+
+living_room:
+  name: Living Room
+  view: true
+  entities:
+    - group.living_room_devices 
+    - light.catherines_desk_lamp
+    - media_player.tv
+    - media_player.unnamed_device
+    - media_player.panasonic_viera_tv
+    - media_player.living_room_home
+    - media_player.spotify
+
+office:
+  name: OFfice
+  view: true
+  entities:
+    - group.office_devices
+    - group.pi_stats
+    - light.desk_lightstrip
+    - media_player.spotify
+
+travel:
+  name: Travel
+  view: true
+  entities:
+    - group.london_underground_status
+    - group.uber_stats
+
+# Groups
+pi_stats:
+  name: Pi Stats
+  entities:
+    - sensor.cpu_use
+    - sensor.disk_use_home
+    - sensor.ram_free
+
+bitcoin_stats:
+  name: Bitcoin
+  view: false
+  entities:
+    - sensor.exchange_rate_1_btc
+    - sensor.difficulty
+    - sensor.hash_rate
+    - sensor.trade_volume
+
+london_underground_status:
+  name: London Underground Status
+  entities:
+    - sensor.bakerloo
+    - sensor.central
+    - sensor.circle
+    - sensor.district
+    - sensor.dlr
+    - sensor.hammersmith__city
+    - sensor.jubilee
+    - sensor.london_overground
+    - sensor.metropolitan
+    - sensor.northern
+    - sensor.piccadilly
+    - sensor.tfl_rail
+    - sensor.victoria
+    - sensor.waterloo__city
+
+uber_stats:
+  name: Uber
+  view: false
+  entities:
+    - sensor.uberx_price
+    - sensor.uberx_time
+    - sensor.uberxl_price
+    - sensor.uberxl_time
+
+date_time:
+  name: Clock
+  entities:
+    - sensor.date
+    - sensor.time
+
+office_devices:
+  name: Devices
+  entities:
+    - sensor.adams_pc
+    - device_tracker.b4cef60885e4
+    - device_tracker.e0319e22699e
+
+living_room_devices:
+  name: Devices
+  entities:
+    - device_tracker.a477334f29d2
+    - device_tracker.400d1034ff40

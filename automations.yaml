@@ -1,0 +1,56 @@
+- alias: Turn off All Lights at Night
+  trigger:
+    platform: time
+    at: '23:30:00'
+  action:
+    - service: light.turn_off
+      entity_id: group.all_lights
+    - service: notify.pushbullet
+      data:
+        message: "All lights turned off"
+
+- alias: Turn off All Lights in Morning
+  trigger:
+    platform: time
+    at: '08:30:00'
+  action:
+    - service: light.turn_off
+      entity_id: group.all_lights
+    - service: notify.pushbullet
+      data:
+        message: "All lights turned off"   
+
+- alias: Update notifications
+  trigger:
+    platform: state
+    entity_id: updater.updater
+  action:
+    - service: notify.pushbullet
+      data: 
+        title: 'New Home Assistant Release'
+        message: "Home Assistant  {{ states.updater.updater.state }}  is now available."
+
+# Network Monitoring
+- alias: Monitor Traffic
+
+  trigger:
+    platform: state
+    entity_id: sensor.snmp_wan_in
+
+  action:
+    - service: input_slider.select_value
+      data_template:
+        entity_id: input_slider.internet_traffic_delta_in
+        value: '{{ ((trigger.to_state.state | int - trigger.from_state.state | int) * 8 ) / ( as_timestamp(trigger.to_state.last_updated) - as_timestamp(trigger.from_state.last_updated) ) }}'
+
+- alias: Monitor Traffic
+
+  trigger:
+    platform: state
+    entity_id: sensor.snmp_wan_out
+
+  action:
+    - service: input_slider.select_value
+      data_template:
+        entity_id: input_slider.internet_traffic_delta_out
+        value: '{{ ((trigger.to_state.state | int - trigger.from_state.state | int) * 8 ) / ( as_timestamp(trigger.to_state.last_updated) - as_timestamp(trigger.from_state.last_updated) ) }}'
