@@ -1,8 +1,7 @@
 - platform: nmap_tracker
-  hosts: 192.168.0.1/48
+  hosts: 192.168.0.1/24
   home_interval: 10
-  track_new_devices: true
-  consider_home: 180
+  #track_new_devices: true
   scan_options: " -PS135,445 -F --host-timeout 5s"
   exclude:
     - 192.168.0.12 # Hue Bridge
