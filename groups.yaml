@@ -36,6 +36,8 @@ office:
   entities:
     - group.office_devices
     - group.pi_stats
+    - group.office_sensors
+    - switch.wake_adams_pc
     - light.desk_lightstrip
     - media_player.spotify
 
@@ -45,6 +47,7 @@ travel:
   entities:
     - group.london_underground_status
     - group.uber_stats
+    - group.travel_sensors
 
 stats:
   name: Stats
@@ -108,6 +111,11 @@ office_devices:
     - sensor.adams_laptop
     - device_tracker.b4cef60885e4
 
+office_sensors:
+  name: Sensors      
+  entities:
+    - sensor.steam_76561198043609312
+
 living_room_devices:
   name: Devices
   entities:
@@ -120,3 +128,13 @@ pi_hole_stats:
     - sensor.pihole_ads_blocked_today
     - sensor.pihole_ads_percentage_blocked_today
     - sensor.pihole_dns_queries_today
+
+travel_sensors:
+  name: Sensors
+  entities:
+    - sensor.time_to_work
+
+network:
+  name: Network
+  entities:
+    - weblink.router

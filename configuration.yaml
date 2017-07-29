@@ -44,15 +44,18 @@ history:
 logbook:
 
 # Track the sun
-#sun:
+sun:
 
 # Text to speech
 tts:
   platform: google
 
+automation: !include automations.yaml
 device_tracker: !include device_tracker.yaml
-sensor: !include sensors.yaml
+group: !include groups.yaml
 media_player: !include media_players.yaml
 notify: !include notifiers.yaml
-group: !include groups.yaml
-automation: !include automations.yaml
+sensor: !include sensors.yaml
+switch: !include switches.yaml        
+weblink: !include weblink.yaml        
+zone: !include zones.yaml

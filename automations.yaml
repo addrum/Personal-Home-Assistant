@@ -1,4 +1,4 @@
-- alias: Turn off All Lights at Night
+- alias: Turn off all lights at night
   trigger:
     platform: time
     at: '23:30:00'
@@ -9,7 +9,7 @@
       data:
         message: "All lights turned off"
 
-- alias: Turn off All Lights in Morning
+- alias: Turn off all lights in the morning
   trigger:
     platform: time
     at: '08:30:00'
@@ -19,6 +19,17 @@
     - service: notify.pushbullet
       data:
         message: "All lights turned off"   
+
+- alias: Turn lights on at sunset
+  trigger:
+    platform: sun
+    event: sunset
+  action:
+    - service: light.turn_on
+      entity_id: group.all_lights
+    - service: notify.pushbullet
+      data:
+        message: "All lights turned on"
 
 - alias: Update notifications
   trigger:
