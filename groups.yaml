@@ -3,15 +3,16 @@ default_view:
   name: default_view
   view: true
   entities:
-    - group.all_lights
-    - group.date_time
     - group.all_automations
+    - group.all_lights
+    - group.bitcoin_stats
+    - group.date_time
+    - group.network
+    - group.weather
     - media_player.spotify
     - media_player.tv
     - media_player.living_room_home
     - media_player.panasonic_viera_tv
-    - group.bitcoin_stats
-    - group.weather
 
 devices:
   name: Devices
@@ -46,6 +47,7 @@ stats:
   name: Stats
   view: true
   entities:
+    - group.network
     - group.pi_stats
     - group.pi_hole_stats 
 
