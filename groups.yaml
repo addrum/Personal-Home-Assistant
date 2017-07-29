@@ -11,6 +11,7 @@ default_view:
     - media_player.living_room_home
     - media_player.panasonic_viera_tv
     - group.bitcoin_stats
+    - group.weather
 
 devices:
   name: Devices
@@ -41,14 +42,6 @@ office:
     - light.desk_lightstrip
     - media_player.spotify
 
-travel:
-  name: Travel
-  view: true
-  entities:
-    - group.london_underground_status
-    - group.uber_stats
-    - group.travel_sensors
-
 stats:
   name: Stats
   view: true
@@ -56,14 +49,15 @@ stats:
     - group.pi_stats
     - group.pi_hole_stats 
 
-# Groups
-pi_stats:
-  name: Pi Stats
+travel:
+  name: Travel
+  view: true
   entities:
-    - sensor.cpu_use
-    - sensor.disk_use_home
-    - sensor.ram_free
+    - group.london_underground_status
+    - group.uber_stats
+    - group.travel_sensors      
 
+# Groups
 bitcoin_stats:
   name: Bitcoin
   entities:
@@ -71,6 +65,18 @@ bitcoin_stats:
     - sensor.difficulty
     - sensor.hash_rate
     - sensor.trade_volume
+
+date_time:
+  name: Clock
+  entities:
+    - sensor.date
+    - sensor.time
+
+living_room_devices:
+  name: Devices
+  entities:
+    - sensor.steam_link
+    - sensor.router
 
 london_underground_status:
   name: London Underground Status
@@ -90,19 +96,13 @@ london_underground_status:
     - sensor.victoria
     - sensor.waterloo__city
 
-uber_stats:
-  name: Uber
+network:
+  name: Network
   entities:
-    - sensor.uberx_price
-    - sensor.uberx_time
-    - sensor.uberxl_price
-    - sensor.uberxl_time
-
-date_time:
-  name: Clock
-  entities:
-    - sensor.date
-    - sensor.time
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+    - sensor.speedtest_ping
+    - weblink.router      
 
 office_devices:
   name: Devices
@@ -116,25 +116,40 @@ office_sensors:
   entities:
     - sensor.steam_76561198043609312
 
-living_room_devices:
-  name: Devices
-  entities:
-    - sensor.steam_link
-    - sensor.router 
-
 pi_hole_stats:
   name: Pi Hole
   entities:
     - sensor.pihole_ads_blocked_today
     - sensor.pihole_ads_percentage_blocked_today
-    - sensor.pihole_dns_queries_today
+    - sensor.pihole_dns_queries_today      
+
+pi_stats:
+  name: Pi Stats
+  entities:
+    - sensor.cpu_use
+    - sensor.disk_use_home
+    - sensor.ram_free
+    - sensor.since_last_boot
 
 travel_sensors:
   name: Sensors
   entities:
-    - sensor.time_to_work
+    - sensor.time_to_work      
 
-network:
-  name: Network
+uber_stats:
+  name: Uber
   entities:
-    - weblink.router
+    - sensor.uberx_price
+    - sensor.uberx_time
+    - sensor.uberxl_price
+    - sensor.uberxl_time
+
+weather:
+  name: Weather
+  entities:
+    - sensor.yr_symbol
+    - sensor.yr_temperature
+    - sensor.yr_cloudiness
+    - sensor.yr_humidity
+    - sensor.yr_wind_speed
+    - sun.sun  
