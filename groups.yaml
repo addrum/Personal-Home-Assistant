@@ -13,6 +13,7 @@ default_view:
     - media_player.tv
     - media_player.living_room_home
     - media_player.panasonic_viera_tv
+    - updater.updater
 
 devices:
   name: Devices
