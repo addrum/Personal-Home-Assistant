@@ -1,8 +1,8 @@
 # Home-Assistant
 My personal Home Assistant configuration backup
 
-![](Personal-Home-Assistant/home.png)
-![](Personal-Home-Assistant/living_room.png)
-![](Personal-Home-Assistant/office.png)
-![](Personal-Home-Assistant/stats.png)
-![](Personal-Home-Assistant/travel.png)
+![](https://github.com/addrum/Personal-Home-Assistant/blob/master/home.png)
+![](https://github.com/addrum/Personal-Home-Assistant/blob/master/living_room.png)
+![](https://github.com/addrum/Personal-Home-Assistant/blob/master/office.png)
+![](https://github.com/addrum/Personal-Home-Assistant/blob/master/stats.png)
+![](https://github.com/addrum/Personal-Home-Assistant/blob/master/travel.png)
