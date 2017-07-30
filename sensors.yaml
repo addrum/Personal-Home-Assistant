@@ -5,13 +5,13 @@
     - difficulty
     - hash_rate
 
-- platform: google_travel_time		
-  api_key: !secret google_api_key 		
-  name: Time to Work		
-  origin: zone.home		
-  destination: zone.work		
-  options:		
-    mode: transit      
+- platform: google_travel_time
+  api_key: !secret google_api_key 
+  name: Time to Work
+  origin: zone.home
+  destination: zone.work
+  options:
+    mode: transit
 
 - platform: london_underground
   line:
@@ -29,6 +29,8 @@
     - TfL Rail
     - Victoria
     - Waterloo & City
+
+- platform: pi_hole      
 
 - platform: systemmonitor
   resources:
