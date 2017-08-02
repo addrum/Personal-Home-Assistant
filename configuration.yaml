@@ -59,6 +59,9 @@ google:
   client_id: !secret google_client_id 
   client_secret: !secret google_client_secret 
 
+emulated_hue:
+  listen_port: 80
+
 automation: !include automations.yaml
 camera: !include cameras.yaml
 device_tracker: !include device_tracker.yaml

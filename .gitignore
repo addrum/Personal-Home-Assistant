@@ -20,4 +20,5 @@ harmony_media_room.conf
 .*
 !/.gitignore
 home-assistant_v2.db-wal
+home-assistant_v2.db-shm
 google_calendars.yaml

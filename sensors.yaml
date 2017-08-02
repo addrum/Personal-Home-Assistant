@@ -90,7 +90,7 @@
 
     adams_calendar:
       value_template: >
-        {{ strptime(states.calendar.adamshort1994gmailcom.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A, %d of %B, at %H:%M") }}:
+        {{ strptime(states.calendar.adamshort1994gmailcom.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%d %B, %H:%M") }}:
         {{ states.calendar.adamshort1994gmailcom.attributes.message }}
       friendly_name: Adam's Next Event
       unit_of_measurement: ''
@@ -98,7 +98,7 @@
 
     catherines_calendar:
       value_template: >
-        {{ strptime(states.calendar.cathybrooks94gmailcom.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A, %d of %B, at %H:%M") }}:
+        {{ strptime(states.calendar.cathybrooks94gmailcom.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%d %B, %H:%M") }}:
         {{ states.calendar.cathybrooks94gmailcom.attributes.message }}
       friendly_name: Catherine's Next Event
       unit_of_measurement: ''
