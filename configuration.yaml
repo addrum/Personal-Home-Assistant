@@ -50,7 +50,17 @@ sun:
 tts:
   platform: google
 
+logger:
+  default: warning
+  logs:
+    requests.packages.urllib3.connectionpool: critical          
+
+google:
+  client_id: !secret google_client_id 
+  client_secret: !secret google_client_secret 
+
 automation: !include automations.yaml
+camera: !include cameras.yaml
 device_tracker: !include device_tracker.yaml
 group: !include groups.yaml
 media_player: !include media_players.yaml

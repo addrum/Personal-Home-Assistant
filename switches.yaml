@@ -2,3 +2,11 @@
   mac_address: !secret pc_mac_address 
   name: "Wake Adam's PC"
   host: 192.168.0.14
+
+- platform: command_line
+  switches:
+    office_camera_switch:
+      command_on: "curl http://192.168.0.14:8080/record?&oid=1"
+      command_off: "curl http://192.168.0.14:8080/recordstop?&oid=1"
+      #command_state: 'curl -s http://192.168.0.14:8080/getobjectlist | grep C920 | cut -d , -f 5'
+      friendly_name: Office Camera Recording 

@@ -8,13 +8,26 @@ group.all_automations:
 group.all_lights:
   friendly_name: Lights
   hidden: false
+
 # media players
 media_player.unnamed_device:
   friendly_name: Chromecast
   hidden: true
 media_player.tv:
   friendly_name: Chromecast (TV)
+
 # sensors
+sensor.yr_cloudiness:
+  friendly_name: Cloudiness
+sensor.yr_humidity:
+  friendly_name: Humidity
+sensor.yr_symbol:
+  friendly_name: Current Weather
+sensor.yr_temperature:
+  friendly_name: Temperature
+sensor.yr_wind_speed:
+  friendly_name: Wind Speed
+
 sensor.uberassist_price:
   hidden: true
 sensor.uberassist_time:
@@ -27,3 +40,7 @@ sensor.uberlux_price:
   hidden: true
 sensor.uberlux_time:
   hidden: true
+
+# switches
+switch.office_camera_switch:
+  assumed_state: false

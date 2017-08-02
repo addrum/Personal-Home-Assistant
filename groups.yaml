@@ -3,12 +3,13 @@ default_view:
   name: default_view
   view: true
   entities:
-    - group.all_automations
     - group.all_lights
     - group.bitcoin_stats
+    - group.family
     - group.date_time
-    - group.network
     - group.weather
+    - calendar.adamshort1994gmailcom
+    - camera.office_camera
     - media_player.spotify
     - media_player.tv
     - media_player.living_room_home
@@ -19,6 +20,9 @@ devices:
   name: Devices
   view: true
   entities:
+    - group.family
+    - group.home_devices
+    - group.visitor_devices
     - group.all_devices
 
 living_room:
@@ -40,17 +44,25 @@ office:
     - group.office_devices
     - group.pi_stats
     - group.office_sensors
-    - switch.wake_adams_pc
+    - camera.office_camera
     - light.desk_lightstrip
     - media_player.spotify
+    - switch.office_camera_switch
+    - switch.wake_adams_pc
 
 stats:
   name: Stats
   view: true
   entities:
-    - group.network
     - group.pi_stats
     - group.pi_hole_stats 
+
+toggles:
+  name: Toggles
+  view: true
+  entities:
+    - group.all_automations
+    - group.all_switches
 
 travel:
   name: Travel
@@ -74,6 +86,24 @@ date_time:
   entities:
     - sensor.date
     - sensor.time
+
+family:
+  name: Family      
+  entities:
+    - device_tracker.adams_phone
+    - device_tracker.catherines_iphone
+
+home_devices:
+  name: Home Devices
+  entities:
+    - device_tracker.adams_moto_360
+    - device_tracker.adams_nexus_9
+    - device_tracker.catherines_macbook_pro
+    - sensor.adams_laptop
+    - snesor.adams_pc
+    - sensor.google_home
+    - sensor.router
+    - sensor.steam_link
 
 living_room_devices:
   name: Devices
@@ -99,20 +129,12 @@ london_underground_status:
     - sensor.victoria
     - sensor.waterloo__city
 
-network:
-  name: Network
-  entities:
-    - sensor.speedtest_download
-    - sensor.speedtest_upload
-    - sensor.speedtest_ping
-    - weblink.router      
-
 office_devices:
   name: Devices
   entities:
     - sensor.adams_pc
     - sensor.adams_laptop
-    - device_tracker.b4cef60885e4
+    - device_tracker.adams_nexus_9
 
 office_sensors:
   name: Sensors      
@@ -138,6 +160,7 @@ travel_sensors:
   name: Sensors
   entities:
     - sensor.time_to_work      
+    - sensor.time_to_hockey_training
 
 uber_stats:
   name: Uber
@@ -147,6 +170,11 @@ uber_stats:
     - sensor.uberxl_price
     - sensor.uberxl_time
 
+visitor_devices:
+  name: Visitors
+  entities:
+    - device_tracker.laurens_phone
+
 weather:
   name: Weather
   entities:
@@ -155,4 +183,4 @@ weather:
     - sensor.yr_cloudiness
     - sensor.yr_humidity
     - sensor.yr_wind_speed
-    - sun.sun  
+    - sun.sun

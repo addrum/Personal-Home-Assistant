@@ -1,0 +1,3 @@
+- platform: mjpeg
+  mjpeg_url: http://192.168.0.14:8080/mjpegfeed?oid=1&full
+  name: Office Camera

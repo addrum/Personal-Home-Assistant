@@ -1,3 +1,27 @@
+- alias: Start webcam recording when Adam is not home
+  trigger:
+    platform: state
+    entity_id: device_tracker.adams_phone
+    to: 'not_home'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.office_camera_switch 
+    - service: notify.pushbullet
+      data:
+        message: "Office camera started recording"
+
+- alias: Stop webcam recording when Adam gets home
+  trigger:
+    platform: state
+    entity_id: device_tracker.adams_phone
+    to: 'home'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.office_camera_switch 
+    - service: notify.pushbullet
+      data:
+        message: "Office camera stopped recording"
+
 - alias: Turn off all lights at night
   trigger:
     platform: time

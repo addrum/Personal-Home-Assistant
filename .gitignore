@@ -19,3 +19,5 @@ phue.conf
 harmony_media_room.conf
 .*
 !/.gitignore
+home-assistant_v2.db-wal
+google_calendars.yaml
