@@ -87,3 +87,19 @@
       value_template: '{% if is_state("device_tracker.steam_link", "home") %}online{% else %}offline{% endif %}'
       friendly_name: 'Steam Link'
       icon_template: mdi:steam
+
+    adams_calendar:
+      value_template: >
+        {{ strptime(states.calendar.adamshort1994gmailcom.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A, %d of %B, at %H:%M") }}:
+        {{ states.calendar.adamshort1994gmailcom.attributes.message }}
+      friendly_name: Adam's Next Event
+      unit_of_measurement: ''
+      icon_template: mdi:calendar
+
+    catherines_calendar:
+      value_template: >
+        {{ strptime(states.calendar.cathybrooks94gmailcom.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A, %d of %B, at %H:%M") }}:
+        {{ states.calendar.cathybrooks94gmailcom.attributes.message }}
+      friendly_name: Catherine's Next Event
+      unit_of_measurement: ''
+      icon_template: mdi:calendar

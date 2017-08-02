@@ -5,10 +5,10 @@ default_view:
   entities:
     - group.all_lights
     - group.bitcoin_stats
+    - group.calendars
     - group.family
     - group.date_time
     - group.weather
-    - calendar.adamshort1994gmailcom
     - camera.office_camera
     - media_player.spotify
     - media_player.tv
@@ -86,6 +86,12 @@ date_time:
   entities:
     - sensor.date
     - sensor.time
+
+calendars:
+  name: Calendars
+  entities:
+    - sensor.adams_calendar
+    - sensor.catherines_calendar
 
 family:
   name: Family      
