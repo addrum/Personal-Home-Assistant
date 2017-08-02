@@ -3,6 +3,10 @@
     platform: state
     entity_id: device_tracker.adams_phone
     to: 'not_home'
+  condition:
+    condition: state
+    entity_id: input_boolean.working_from_home
+    state: 'off'
   action:
     - service: switch.turn_on
       entity_id: switch.office_camera_switch 

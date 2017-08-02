@@ -1,0 +1,4 @@
+working_from_home:
+  name: Working From Home
+  initial: off
+  icon: mdi:home

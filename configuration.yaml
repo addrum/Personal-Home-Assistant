@@ -66,6 +66,7 @@ automation: !include automations.yaml
 camera: !include cameras.yaml
 device_tracker: !include device_tracker.yaml
 group: !include groups.yaml
+input_boolean: !include booleans.yaml
 media_player: !include media_players.yaml
 notify: !include notifiers.yaml
 sensor: !include sensors.yaml

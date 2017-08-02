@@ -63,6 +63,7 @@ toggles:
   entities:
     - group.all_automations
     - group.all_switches
+    - group.all_input_booleans
 
 travel:
   name: Travel
@@ -73,6 +74,10 @@ travel:
     - group.travel_sensors      
 
 # Groups
+all_input_booleans:
+  entities:
+    - input_boolean.working_from_home
+
 bitcoin_stats:
   name: Bitcoin
   entities:
