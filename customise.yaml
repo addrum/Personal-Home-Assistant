@@ -47,6 +47,10 @@ sensor.uberlux_price:
 sensor.uberlux_time:
   hidden: true
 
+sensor.log_db_file_size:
+  friendly_name: HA Log Database
+  icon: mdi:database
+
 # switches
 switch.office_camera_switch:
   assumed_state: false

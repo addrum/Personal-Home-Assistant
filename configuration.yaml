@@ -50,6 +50,9 @@ sun:
 tts:
   platform: google
 
+recorder:
+  purge_days: 1
+
 logger:
   default: warning
   logs:
