@@ -6,7 +6,6 @@
 - platform: command_line
   switches:
     office_camera_switch:
-      command_on: "curl http://192.168.0.14:8080/record?&oid=1"
-      command_off: "curl http://192.168.0.14:8080/recordstop?&oid=1"
-      #command_state: 'curl -s http://192.168.0.14:8080/getobjectlist | grep C920 | cut -d , -f 5'
+      command_on: "python3 /home/homeassistant/.homeassistant/start_camera_recording.py"
+      command_off: "python3 /home/homeassistant/.homeassistant/stop_camera_recording.py"
       friendly_name: Office Camera Recording 
