@@ -47,10 +47,16 @@
 - platform: pi_hole      
   host: localhost:9000
 
+- platform: steam_online
+  api_key: !secret steam_api_key
+  accounts:
+    - !secret steam_uid
+
 - platform: snmp
   host: 192.168.0.14
+  community: !secret snmp_community
   name: pc_up_time
-  baseoid: 1.3.6.1.4.1.311.1.1.3.1.1.33.14
+  baseoid: 1.3.6.1.2.1.1.3.0
 
 - platform: systemmonitor
   resources:
@@ -115,3 +121,24 @@
       friendly_name: Catherine's Next Event
       unit_of_measurement: ''
       icon_template: mdi:calendar
+
+    f1_calendar:
+      value_template: >
+        {{ strptime(states.calendar.formula_one_calendar_by_f1_fanatic.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%d %B, %H:%M") }}:
+        {{ states.calendar.formula_one_calendar_by_f1_fanatic.attributes.message }}
+      friendly_name: Next F1 Event
+      unit_of_measurement: ''
+      icon_template: mdi:calendar
+
+    liverpool_calendar:
+      value_template: >
+        {{ strptime(states.calendar.liverpool_fc_calendar__fixtures__results.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%d %B, %H:%M") }}:
+        {{ states.calendar.liverpool_fc_calendar__fixtures__results.attributes.message }}
+      friendly_name: Next Liverpool Fixture
+      unit_of_measurement: ''
+      icon_template: mdi:calendar
+
+    steam_game:
+      value_template: '{{ states.sensor.steam_76561198043609312.attributes.Game }}'
+      friendly_name: 'Currently Playing'
+      icon_template: mdi:google-controller

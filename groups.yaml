@@ -41,6 +41,7 @@ office:
   name: OFfice
   view: true
   entities:
+    - group.adams_pc_stats
     - group.office_devices
     - group.pi_stats
     - group.office_sensors
@@ -74,6 +75,11 @@ travel:
     - group.travel_sensors      
 
 # Groups
+adams_pc_stats:
+  name: PC
+  entities:
+    - sensor.pc_up_time
+
 all_input_booleans:
   entities:
     - input_boolean.working_from_home
@@ -97,6 +103,8 @@ calendars:
   entities:
     - sensor.adams_calendar
     - sensor.catherines_calendar
+    - sensor.f1_calendar
+    - sensor.liverpool_calendar
 
 family:
   name: Family      
@@ -151,6 +159,7 @@ office_sensors:
   name: Sensors      
   entities:
     - sensor.steam_76561198043609312
+    - sensor.steam_game
 
 pi_hole_stats:
   name: Pi Hole
