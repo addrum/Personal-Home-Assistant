@@ -9,11 +9,6 @@ default_view:
     - group.family
     - group.date_time
     - group.weather
-    - camera.office_camera
-    - media_player.spotify
-    - media_player.tv
-    - media_player.living_room_home
-    - media_player.panasonic_viera_tv
     - updater.updater
 
 devices:
@@ -30,6 +25,7 @@ living_room:
   view: true
   entities:
     - group.living_room_devices 
+    - camera.living_room_camera
     - light.catherines_desk_lamp
     - media_player.tv
     - media_player.unnamed_device
