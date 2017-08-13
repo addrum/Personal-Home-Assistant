@@ -195,9 +195,11 @@ visitor_devices:
 weather:
   name: Weather
   entities:
-    - sensor.yr_symbol
-    - sensor.yr_temperature
-    - sensor.yr_cloudiness
-    - sensor.yr_humidity
-    - sensor.yr_wind_speed
+    - sensor.pws_alerts
+    - sensor.pws_feelslike_c
+    - sensor.pws_temp_c
+    - sensor.pws_temp_high_1d_c
+    - sensor.pws_temp_low_1d_c
+    - sensor.pws_precip_today_string
+    - sensor.pws_wind_string
     - sun.sun
