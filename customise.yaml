@@ -52,5 +52,7 @@ sensor.log_db_file_size:
   icon: mdi:database
 
 # switches
+switch.living_room_camera_switch:
+  assumed_state: false
 switch.office_camera_switch:
   assumed_state: false

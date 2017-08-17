@@ -71,11 +71,6 @@ travel:
     - group.travel_sensors      
 
 # Groups
-adams_pc_stats:
-  name: PC
-  entities:
-    - sensor.pc_up_time
-
 all_input_booleans:
   entities:
     - input_boolean.working_from_home
@@ -114,6 +109,7 @@ home_devices:
     - device_tracker.adams_moto_360
     - device_tracker.adams_nexus_9
     - device_tracker.catherines_macbook_pro
+    - device_tracker.nexus_5
     - sensor.adams_laptop
     - snesor.adams_pc
     - sensor.google_home
@@ -190,6 +186,7 @@ uber_stats:
 visitor_devices:
   name: Visitors
   entities:
+    - device_tracker.evies_phone
     - device_tracker.laurens_phone
 
 weather:

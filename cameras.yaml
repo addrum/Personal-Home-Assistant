@@ -1,7 +1,7 @@
 - platform: mjpeg
   mjpeg_url: http://192.168.0.14:8100/Mjpeg/0?authToken=ac6d1e4e-6827-4924-ba0a-f5f5fcac85da
-  name: Office Camera
+  name: Living Room Camera
 
 - platform: mjpeg
-  mpjeg_url: http://192.168.0.14:8100/Mjpeg/1?authToken=ac6d1e4e-6827-4924-ba0a-f5f5fcac85da
-  name: Living Room Camera
+  mjpeg_url: http://192.168.0.14:8100/Mjpeg/1?authToken=ac6d1e4e-6827-4924-ba0a-f5f5fcac85da
+  name: Office Camera

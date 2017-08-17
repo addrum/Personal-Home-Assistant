@@ -6,10 +6,10 @@
 - platform: command_line
   switches:
     living_room_camera_switch:
-      command_on: "python3 /home/homeassistant/.homeassistant/camera_recording.py 1 true"
-      command_off: "python3 /home/homeassistant/.homeassistant/camera_recording.py 1 false"
-      friendly_name: Office Camera Recording 
-    office_camera_switch:
       command_on: "python3 /home/homeassistant/.homeassistant/camera_recording.py 0 true"
       command_off: "python3 /home/homeassistant/.homeassistant/camera_recording.py 0 false"
+      friendly_name: Living Room Camera Recording 
+    office_camera_switch:
+      command_on: "python3 /home/homeassistant/.homeassistant/camera_recording.py 1 true"
+      command_off: "python3 /home/homeassistant/.homeassistant/camera_recording.py 1 false"
       friendly_name: Office Camera Recording
