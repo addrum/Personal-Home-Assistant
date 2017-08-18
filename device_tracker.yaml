@@ -8,3 +8,5 @@
     - 192.168.0.15 # Chromecast
     - 192.168.0.16 # TiVo Box
     - 192.168.0.23 # TV
+
+- platform: bluetooth_tracker

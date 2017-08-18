@@ -100,14 +100,14 @@ calendars:
 family:
   name: Family      
   entities:
-    - device_tracker.adams_phone
+    - device_tracker.nexus_6p
     - device_tracker.catherines_iphone
 
 home_devices:
   name: Home Devices
   entities:
     - device_tracker.adams_moto_360
-    - device_tracker.adams_nexus_9
+    - device_tracker.nexus_9
     - device_tracker.catherines_macbook_pro
     - device_tracker.nexus_5
     - sensor.adams_laptop
@@ -145,7 +145,7 @@ office_devices:
   entities:
     - sensor.adams_pc
     - sensor.adams_laptop
-    - device_tracker.adams_nexus_9
+    - device_tracker.nexus_9
 
 office_sensors:
   name: Sensors      
