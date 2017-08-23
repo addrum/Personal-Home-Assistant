@@ -56,7 +56,8 @@ recorder:
 logger:
   default: warning
   logs:
-    requests.packages.urllib3.connectionpool: critical          
+    requests.packages.urllib3.connectionpool: critical
+    homeassistant.components.camera: critical
 
 google:
   client_id: !secret google_client_id 

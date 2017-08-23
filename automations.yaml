@@ -1,7 +1,7 @@
 - alias: Start webcam recording when Adam is not home
   trigger:
     platform: state
-    entity_id: device_tracker.adams_phone
+    entity_id: device_tracker.nexus_6p
     to: 'not_home'
   condition:
     condition: state
@@ -17,7 +17,7 @@
 - alias: Stop webcam recording when Adam gets home
   trigger:
     platform: state
-    entity_id: device_tracker.adams_phone
+    entity_id: device_tracker.nexus_6p
     to: 'home'
   condition:
     condition: state
