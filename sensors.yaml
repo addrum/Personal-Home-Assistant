@@ -135,6 +135,14 @@
       unit_of_measurement: ''
       icon_template: mdi:soccer
 
+    jubilee_line_delayed:
+      entity_id: sensor.jubilee
+      value_template: '{% if states("sensor.jubilee") != "Good Service" %}true{% else %}false{% endif %}'
+
+    met_line_delayed:
+      entity_id: sensor.metropolitan
+      value_template: '{% if states("sensor.metropolitan") != "Good Service" %}true{% else %}false{% endif %}'
+
     steam_game:
       value_template: '{{ states.sensor.steam_76561198043609312.attributes.Game }}'
       friendly_name: 'Currently Playing'
