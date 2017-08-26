@@ -1,12 +1,39 @@
+- alias: Jubilee Line Delayed
+  trigger:
+    platform: state
+    entity_id: sensor.jubilee_line_delayed
+    to: 'true'
+  action:
+    - service: notify.pushbullet
+      data:
+        title: "Jubilee Line Update"
+        message: "Jubilee Line has delays"
+
+- alias: Metropolitan Line Delayed
+  trigger:
+    platform: state
+    entity_id: sensor.met_line_delayed
+    to: 'true'
+  action:
+    - service: notify.pushbullet
+      data:
+        title: "Metropolitan Line Update"
+        message: "Metropolitan Line has delays"
+
 - alias: Start webcam recording when Adam is not home
   trigger:
     platform: state
     entity_id: device_tracker.nexus_6p
     to: 'not_home'
   condition:
-    condition: state
-    entity_id: input_boolean.working_from_home
-    state: 'off'
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.working_from_home
+        state: 'off'
+      - condition: state
+        entity_id: device_tracker.adams_phone
+        state: 'not_home'
   action:
     - service: switch.turn_on
       entity_id: switch.office_camera_switch 
