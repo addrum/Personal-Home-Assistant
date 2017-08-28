@@ -5,9 +5,9 @@
     to: 'true'
   action:
     - service: notify.pushbullet
-      data:
+      data_template:
         title: "Jubilee Line Update"
-        message: "Jubilee Line has delays"
+        message: "{{ states.sensor.jubilee.state }}"
 
 - alias: Metropolitan Line Delayed
   trigger:
@@ -18,7 +18,7 @@
     - service: notify.pushbullet
       data:
         title: "Metropolitan Line Update"
-        message: "Metropolitan Line has delays"
+        message: "{{ states.sensor.metropolitan.state }}"
 
 - alias: Start webcam recording when Adam is not home
   trigger:
