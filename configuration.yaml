@@ -63,8 +63,12 @@ google:
   client_id: !secret google_client_id 
   client_secret: !secret google_client_secret 
 
-emulated_hue:
-  listen_port: 80
+#emulated_hue:
+#  listen_port: 80
+
+light:
+  - platform: hue
+    host: 192.168.0.12
 
 automation: !include automations.yaml
 camera: !include cameras.yaml

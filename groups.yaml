@@ -25,8 +25,9 @@ living_room:
   view: true
   entities:
     - group.living_room_devices 
+    - group.living_room_lights
     - camera.living_room_camera
-    - light.catherines_desk_lamp
+    - light.living_room
     - media_player.tv
     - media_player.unnamed_device
     - media_player.panasonic_viera_tv
@@ -39,10 +40,10 @@ office:
   entities:
     - group.adams_pc_stats
     - group.office_devices
-    - group.pi_stats
+    - group.office_lights
     - group.office_sensors
+    - group.pi_stats
     - camera.office_camera
-    - light.desk_lightstrip
     - media_player.spotify
     - switch.office_camera_switch
     - switch.wake_adams_pc
@@ -100,8 +101,8 @@ calendars:
 family:
   name: Family      
   entities:
-    - device_tracker.nexus_6p
-    - device_tracker.catherines_iphone
+    - device_tracker.adams_phone_bt
+    - device_tracker.catherines_phone_wifi
 
 home_devices:
   name: Home Devices
@@ -121,6 +122,11 @@ living_room_devices:
   entities:
     - sensor.steam_link
     - sensor.router
+
+living_rooom_lights:
+  name: Lights
+  entities:
+    - light.catherines_desk_lamp
 
 london_underground_status:
   name: London Underground Status
@@ -146,6 +152,11 @@ office_devices:
     - sensor.adams_pc
     - sensor.adams_laptop
     - device_tracker.nexus_9
+
+office_lights:
+  name: Lights
+  entities:
+    - light.desk_lightstrip
 
 office_sensors:
   name: Sensors      
