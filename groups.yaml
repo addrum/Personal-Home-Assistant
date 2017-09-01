@@ -72,6 +72,11 @@ travel:
     - group.travel_sensors      
 
 # Groups
+adams_devices:
+  entities:
+    - device_tracker.adams_phone_bt
+    - device_tracker.adams_phone_wifi
+
 all_input_booleans:
   entities:
     - input_boolean.working_from_home
@@ -102,6 +107,7 @@ family:
   name: Family      
   entities:
     - device_tracker.adams_phone_bt
+    - device_tracker.adams_phone_wifi
     - device_tracker.catherines_phone_wifi
 
 home_devices:

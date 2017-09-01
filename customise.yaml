@@ -1,3 +1,7 @@
+# devices
+device_tracker.adams_phone_wifi:
+  hidden: true
+
 # groups
 group.all_automations:
   friendly_name: Automations

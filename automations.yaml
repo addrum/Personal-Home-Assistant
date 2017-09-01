@@ -23,17 +23,12 @@
 - alias: Start webcam recording when Adam is not home
   trigger:
     platform: state
-    entity_id: device_tracker.adams_phone_bt
+    entity_id: group.adams_devices
     to: 'not_home'
   condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: input_boolean.working_from_home
-        state: 'off'
-      - condition: state
-        entity_id: device_tracker.adams_phone_bt
-        state: 'not_home'
+    - condition: state
+      entity_id: input_boolean.working_from_home
+      state: 'off'
   action:
     - service: switch.turn_on
       entity_id: switch.office_camera_switch 
@@ -44,12 +39,12 @@
 - alias: Stop webcam recording when Adam gets home
   trigger:
     platform: state
-    entity_id: device_tracker.adams_phone_bt
+    entity_id: group.adams_devices 
     to: 'home'
   condition:
-    condition: state
-    entity_id: input_boolean.working_from_home
-    state: 'off'
+    - condition: state
+      entity_id: input_boolean.working_from_home
+      state: 'off'
   action:
     - service: switch.turn_off
       entity_id: switch.office_camera_switch 
@@ -81,17 +76,20 @@
 
 - alias: Turn office lights on at sunset if Adam is home
   trigger:
-    platform: sun
-    event: sunset
-    offset: "-00:15:00"
-  condition:
-    condition: or
+    - platform: sun
+      event: sunset
+      offset: "-00:15:00"
+    - platform: state
+      entity_id: group.adams_devices
+      to: 'home'
+  condition:  
+    condition: and
     conditions:
+      - condition: sun
+        after: sunset
+        after_offset: "-00:15:00"
       - condition: state
-        entity_id: device_tracker.adams_phone_bt
-        state: 'home'
-      - condition: state
-        entity_id: device_tracker.adams_phone_wifi
+        entity_id: group.adams_devices
         state: 'home'
   action:
     - service: light.turn_on
@@ -102,20 +100,20 @@
 
 - alias: Turn living room lights on at sunset if anyone is home
   trigger:
-    platform: sun
-    event: sunset
-    offset: "-00:15:00"
-  condition:
-    condition: or
+    - platform: sun
+      event: sunset
+      offset: "-00:15:00"
+    - platform: state
+      entity_id: group.family
+      to: 'home'
+  condition:  
+    condition: and
     conditions:
+      - condition: sun
+        after: sunset
+        after_offset: "-00:15:00"
       - condition: state
-        entity_id: device_tracker.adams_phone_wifi
-        state: 'home'
-      - condition: state
-        entity_id: device_tracker.adams_phone_bt
-        state: 'home'
-      - condition: state
-        entity_id: device_tracker.catherines_phone_wifi
+        entity_id: group.family
         state: 'home'
   action:
     - service: light.turn_on
