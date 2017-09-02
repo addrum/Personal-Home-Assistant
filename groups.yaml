@@ -27,7 +27,6 @@ living_room:
     - group.living_room_devices 
     - group.living_room_lights
     - camera.living_room_camera
-    - light.living_room
     - media_player.tv
     - media_player.unnamed_device
     - media_player.panasonic_viera_tv
@@ -129,7 +128,7 @@ living_room_devices:
     - sensor.steam_link
     - sensor.router
 
-living_rooom_lights:
+living_room_lights:
   name: Lights
   entities:
     - light.catherines_desk_lamp
