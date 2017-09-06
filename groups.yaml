@@ -26,7 +26,6 @@ living_room:
   entities:
     - group.living_room_devices 
     - group.living_room_lights
-    - camera.living_room_camera
     - media_player.tv
     - media_player.unnamed_device
     - media_player.panasonic_viera_tv
