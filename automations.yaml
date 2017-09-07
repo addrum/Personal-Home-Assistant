@@ -93,7 +93,7 @@
         state: 'home'
   action:
     - service: light.turn_on
-      entity_id: light.desk_lightstrip
+      entity_id: group.office_lights
     - service: notify.pushbullet
       data:
         message: "Office lights turned on"
@@ -117,7 +117,7 @@
         state: 'home'
   action:
     - service: light.turn_on
-      entity_id: light.desk_lightstrip
+      entity_id: group.living_room_lights
     - service: notify.pushbullet
       data:
         message: "Living room lights turned on"
