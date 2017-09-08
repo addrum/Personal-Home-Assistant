@@ -6,6 +6,6 @@
 - platform: command_line
   switches:
     office_camera_switch:
-      command_on: "python3 /home/homeassistant/.homeassistant/camera_recording.py 1 true"
-      command_off: "python3 /home/homeassistant/.homeassistant/camera_recording.py 1 false"
+      command_on: "python3 /home/homeassistant/.homeassistant/camera_recording.py 0 true"
+      command_off: "python3 /home/homeassistant/.homeassistant/camera_recording.py 0 false"
       friendly_name: Office Camera Recording
