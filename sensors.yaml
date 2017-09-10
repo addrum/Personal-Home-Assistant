@@ -95,6 +95,9 @@
       value_template: '{% if is_state("device_tracker.google_home", "home") %}online{% else %}offline{% endif %}'
       friendly_name: 'Google Home'
       icon_template: mdi:google
+    printer:
+      value_template: '{% if is_state("device_tracker.printer", "home") %}on{% else %}off{% endif %}'
+      friendly_name: 'Printer'
     router:
       value_template: '{% if is_state("device_tracker.router", "home") %}online{% else %}offline{% endif %}'
       friendly_name: 'Router'    

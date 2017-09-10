@@ -1,6 +1,12 @@
 # devices
 device_tracker.adams_phone_wifi:
   hidden: true
+device_tracker.garvz:
+  hidden: true
+device_tracker.gemmas_iphone:
+  hidden: true
+device_tracker.jam_trance_mini:
+  hidden: true
 
 # groups
 group.all_automations:
