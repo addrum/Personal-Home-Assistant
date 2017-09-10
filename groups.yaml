@@ -115,10 +115,10 @@ home_devices:
     - device_tracker.nexus_9
     - device_tracker.catherines_macbook_pro
     - device_tracker.nexus_5
-    - device_tracker.printer
     - sensor.adams_laptop
     - snesor.adams_pc
     - sensor.google_home
+    - sensor.printer
     - sensor.router
     - sensor.steam_link
 
@@ -156,8 +156,8 @@ office_devices:
   entities:
     - sensor.adams_pc
     - sensor.adams_laptop
+    - sensor.printer
     - device_tracker.nexus_9
-    - device_tracker.printer
 
 office_lights:
   name: Lights
