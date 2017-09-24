@@ -9,7 +9,7 @@
       before: '22:00:00'
   action:
     - service: notify.pushbullet
-      data_template:
+      data:
         title: "Jubilee Line Update"
         message: "{{ states.sensor.jubilee.state }}"
 
@@ -97,7 +97,6 @@
     - service: notify.pushbullet
       data:
         message: "Turned all lights off as no one is home"
-
 
 - alias: Turn office lights on at sunset if Adam is home
   trigger:
