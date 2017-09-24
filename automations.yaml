@@ -82,6 +82,23 @@
       data:
         message: "All lights turned off"   
 
+- alias: Turn off all lights if no one is home
+  trigger:
+    - platform: state
+      entity_id: group.family
+      to: 'not_home'
+  condition:  
+    - condition: state
+      entity_id: group.all_lights
+      state: 'on'
+  action:
+    - service: light.turn_off
+      entity_id: group.all_lights
+    - service: notify.pushbullet
+      data:
+        message: "Turned all lights off as no one is home"
+
+
 - alias: Turn office lights on at sunset if Adam is home
   trigger:
     - platform: sun
