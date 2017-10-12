@@ -60,6 +60,14 @@
       data:
         message: "Office camera stopped recording"
 
+- alias: Turn lights on in the morning
+  trigger:
+    platform: time
+    at: '07:00:00'
+  action:
+    - service: light.turn_on
+      entity_id: group.living_room_lights
+
 - alias: Turn off all lights at night
   trigger:
     platform: time
@@ -67,14 +75,18 @@
   action:
     - service: light.turn_off
       entity_id: group.all_lights
-    - service: notify.pushbullet
-      data:
-        message: "All lights turned off"
+    # - service: notify.pushbullet
+    #   data:
+    #     message: "All lights turned off"
 
 - alias: Turn off all lights in the morning
   trigger:
     platform: time
     at: '08:30:00'
+  condition:  
+    - condition: state
+      entity_id: group.all_lights
+      state: 'on'
   action:
     - service: light.turn_off
       entity_id: group.all_lights
