@@ -51,7 +51,8 @@ tts:
   platform: google
 
 recorder:
-  purge_days: 1
+  purge_interval: 2
+  purge_keep_days: 5
 
 logger:
   default: warning
@@ -62,6 +63,8 @@ logger:
 google:
   client_id: !secret google_client_id 
   client_secret: !secret google_client_secret 
+
+upnp:
 
 #emulated_hue:
 #  listen_port: 80

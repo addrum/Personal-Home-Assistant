@@ -28,37 +28,37 @@
         title: "Metropolitan Line Update"
         message: "{{ states.sensor.metropolitan.state }}"
 
-- alias: Start webcam recording when Adam is not home
-  trigger:
-    platform: state
-    entity_id: group.adams_devices
-    to: 'not_home'
-  condition:
-    - condition: state
-      entity_id: input_boolean.working_from_home
-      state: 'off'
-  action:
-    - service: switch.turn_on
-      entity_id: switch.office_camera_switch 
-    - service: notify.pushbullet
-      data:
-        message: "Office camera started recording"
+# - alias: Start webcam recording when Adam is not home
+#   trigger:
+#     platform: state
+#     entity_id: group.adams_devices
+#     to: 'not_home'
+#   condition:
+#     - condition: state
+#       entity_id: input_boolean.working_from_home
+#       state: 'off'
+#   action:
+#     - service: switch.turn_on
+#       entity_id: switch.office_camera_switch 
+#     - service: notify.pushbullet
+#       data:
+#         message: "Office camera started recording"
 
-- alias: Stop webcam recording when Adam gets home
-  trigger:
-    platform: state
-    entity_id: group.adams_devices 
-    to: 'home'
-  condition:
-    - condition: state
-      entity_id: input_boolean.working_from_home
-      state: 'off'
-  action:
-    - service: switch.turn_off
-      entity_id: switch.office_camera_switch 
-    - service: notify.pushbullet
-      data:
-        message: "Office camera stopped recording"
+# - alias: Stop webcam recording when Adam gets home
+#   trigger:
+#     platform: state
+#     entity_id: group.adams_devices 
+#     to: 'home'
+#   condition:
+#     - condition: state
+#       entity_id: input_boolean.working_from_home
+#       state: 'off'
+#   action:
+#     - service: switch.turn_off
+#       entity_id: switch.office_camera_switch 
+#     - service: notify.pushbullet
+#       data:
+#         message: "Office camera stopped recording"
 
 - alias: Turn lights on in the morning
   trigger:
@@ -94,21 +94,21 @@
       data:
         message: "All lights turned off"   
 
-- alias: Turn off all lights if no one is home
-  trigger:
-    - platform: state
-      entity_id: group.family
-      to: 'not_home'
-  condition:  
-    - condition: state
-      entity_id: group.all_lights
-      state: 'on'
-  action:
-    - service: light.turn_off
-      entity_id: group.all_lights
-    - service: notify.pushbullet
-      data:
-        message: "Turned all lights off as no one is home"
+# - alias: Turn off all lights if no one is home
+#   trigger:
+#     - platform: state
+#       entity_id: group.family
+#       to: 'not_home'
+#   condition:  
+#     - condition: state
+#       entity_id: group.all_lights
+#       state: 'on'
+#   action:
+#     - service: light.turn_off
+#       entity_id: group.all_lights
+#     - service: notify.pushbullet
+#       data:
+#         message: "Turned all lights off as no one is home"
 
 - alias: Turn office lights on at sunset if Adam is home
   trigger:
