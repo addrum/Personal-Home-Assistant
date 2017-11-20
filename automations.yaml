@@ -10,8 +10,8 @@
   action:
     - service: notify.pushbullet
       data:
-        title: "Jubilee Line Update"
-        message: "{{ states.sensor.jubilee.state }}"
+        title: "Jubilee Line - {{ states.sensor.jubilee.state }}"
+        message: "{{ states.sensor.jubilee.attributes.Description }}"
 
 - alias: Metropolitan Line Delayed
   trigger:
@@ -25,8 +25,8 @@
   action:
     - service: notify.pushbullet
       data:
-        title: "Metropolitan Line Update"
-        message: "{{ states.sensor.metropolitan.state }}"
+        title: "Metropolitan Line - {{ states.sensor.jubilee.state }}"
+        message: "{{ states.sensor.metropolitan.attributes.Description }}"
 
 # - alias: Start webcam recording when Adam is not home
 #   trigger:
@@ -60,18 +60,34 @@
 #       data:
 #         message: "Office camera stopped recording"
 
-- alias: Turn lights on in the morning
+- alias: Turn lights on in the morning (weekday)
   trigger:
     platform: time
     at: '07:00:00'
+  condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
   action:
     - service: light.turn_on
       entity_id: group.living_room_lights
 
-- alias: Turn off all lights at night
+- alias: Turn off all lights at night (weekday)
   trigger:
     platform: time
     at: '23:30:00'
+  condition:
+    - condition: time
+      weekday:
+        - sun
+        - mon
+        - tue
+        - wed
+        - thu
   action:
     - service: light.turn_off
       entity_id: group.all_lights
@@ -79,10 +95,27 @@
     #   data:
     #     message: "All lights turned off"
 
-- alias: Turn off all lights in the morning
+- alias: Turn off all lights at night (weekend)
   trigger:
     platform: time
-    at: '08:30:00'
+    at: '03:00:00'
+  condition:
+    - condition: time
+      weekday:
+        - fri
+        - sat
+  action:
+    - service: light.turn_off
+      entity_id: group.all_lights
+    # - service: notify.pushbullet
+    #   data:
+    #     message: "All lights turned off"
+
+- alias: Turn off all lights in the morning after sunrise
+  trigger:
+    - platform: sun
+      event: sunrise
+      offset: "+00:30:00"
   condition:  
     - condition: state
       entity_id: group.all_lights
