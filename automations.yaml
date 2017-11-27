@@ -167,7 +167,7 @@
     #   data:
     #     message: "Office lights turned on"
 
-- alias: Turn living room lights on at sunset if anyone is home
+- alias: Turn living room lights on at sunset if someone is home
   trigger:
     - platform: sun
       event: sunset

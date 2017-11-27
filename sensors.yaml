@@ -47,7 +47,7 @@
 - platform: pi_hole      
   host: localhost:9000
 
-- platform: steam_online
+- platform: steam_Online
   api_key: !secret steam_api_key
   accounts:
     - !secret steam_uid
@@ -65,8 +65,8 @@
     - 'time'
     - 'date'      
 
-- platform: uber
-  server_token: !secret uber_server_token      
+# - platform: uber
+#   server_token: !secret uber_server_token      
 
 - platform: wunderground
   api_key: !secret wu_api_key
@@ -84,25 +84,25 @@
 - platform: template
   sensors:
     adams_laptop:
-      value_template: '{% if is_state("device_tracker.adams_laptop", "home") %}online{% else %}offline{% endif %}'
+      value_template: '{% if is_state("device_tracker.adams_laptop", "home") %}Online{% else %}Offline{% endif %}'
       friendly_name: 'Adams Laptop'
       icon_template: mdi:laptop-windows
     adams_pc:
-      value_template: '{% if is_state("device_tracker.adams_pc", "home") %}online{% else %}offline{% endif %}'
+      value_template: '{% if is_state("device_tracker.adams_pc", "home") %}Online{% else %}Offline{% endif %}'
       friendly_name: 'Adams PC'
       icon_template: mdi:windows
     google_home:
-      value_template: '{% if is_state("device_tracker.google_home", "home") %}online{% else %}offline{% endif %}'
+      value_template: '{% if is_state("device_tracker.google_home", "home") %}Online{% else %}Offline{% endif %}'
       friendly_name: 'Google Home'
       icon_template: mdi:google
     printer:
-      value_template: '{% if is_state("device_tracker.printer", "home") %}on{% else %}off{% endif %}'
+      value_template: '{% if is_state("device_tracker.printer", "home") %}On{% else %}Off{% endif %}'
       friendly_name: 'Printer'
     router:
-      value_template: '{% if is_state("device_tracker.router", "home") %}online{% else %}offline{% endif %}'
+      value_template: '{% if is_state("device_tracker.router", "home") %}Online{% else %}Offline{% endif %}'
       friendly_name: 'Router'    
     steam_link:
-      value_template: '{% if is_state("device_tracker.steam_link", "home") %}online{% else %}offline{% endif %}'
+      value_template: '{% if is_state("device_tracker.steam_link", "home") %}Online{% else %}Offline{% endif %}'
       friendly_name: 'Steam Link'
       icon_template: mdi:steam
 
@@ -153,6 +153,10 @@
 
     sunrise:
       value_template: '{{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom("%-I:%M %p") }}'
+      friendly_name: 'Sunrise'
+      icon_template: mdi:weather-sunset-up
 
     sunset:
       value_template: '{{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom("%-I:%M %p") }}'
+      friendly_name: 'Sunset'
+      icon_template: mdi:weather-sunset-down
