@@ -150,3 +150,9 @@
       value_template: '{{ states.sensor.steam_76561198043609312.attributes.Game }}'
       friendly_name: 'Currently Playing'
       icon_template: mdi:google-controller
+
+    sunrise:
+      value_template: '{{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom("%-I:%M %p") }}'
+
+    sunset:
+      value_template: '{{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom("%-I:%M %p") }}'
