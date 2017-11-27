@@ -74,7 +74,7 @@
         - fri
   action:
     - service: light.turn_on
-      entity_id: group.living_room_lights
+      entity_id: light.living_room
 
 - alias: Turn off all lights at night (weekday)
   trigger:
@@ -162,10 +162,10 @@
         state: 'home'
   action:
     - service: light.turn_on
-      entity_id: group.office_lights
-    - service: notify.pushbullet
-      data:
-        message: "Office lights turned on"
+      entity_id: light.office
+    # - service: notify.pushbullet
+    #   data:
+    #     message: "Office lights turned on"
 
 - alias: Turn living room lights on at sunset if anyone is home
   trigger:
@@ -186,10 +186,34 @@
         state: 'home'
   action:
     - service: light.turn_on
-      entity_id: group.living_room_lights
+      entity_id: light.living_room
+    # - service: notify.pushbullet
+    #   data:
+    #     message: "Living room lights turned on"
+
+- alias: Turn stairs light on when someone gets home
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: "-00:30:00"
+    - platform: state
+      entity_id: group.family
+      to: 'home'
+  condition:  
+    condition: and
+    conditions:
+      - condition: sun
+        after: sunset
+        after_offset: "-00:30:00"
+      - condition: state
+        entity_id: group.family
+        state: 'home'
+  action:
+    - service: light.turn_on
+      entity_id: light.stairs_light
     - service: notify.pushbullet
       data:
-        message: "Living room lights turned on"
+        message: "Stairs light turned on"
 
 - alias: Update notifications
   trigger:

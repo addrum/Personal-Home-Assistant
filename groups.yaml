@@ -131,6 +131,7 @@ living_room_devices:
 living_room_lights:
   name: Lights
   entities:
+    - light.black_lamp
     - light.catherines_desk_lamp
 
 london_underground_status:
