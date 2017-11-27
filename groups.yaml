@@ -51,6 +51,7 @@ stats:
   name: Stats
   view: true
   entities:
+    - group.network_stats
     - group.pi_stats
     - group.pi_hole_stats 
 
@@ -118,7 +119,6 @@ home_devices:
     - device_tracker.nexus_5
     - sensor.adams_laptop
     - snesor.adams_pc
-    - sensor.google_home
     - sensor.printer
     - sensor.router
     - sensor.steam_link
@@ -152,6 +152,14 @@ london_underground_status:
     - sensor.tfl_rail
     - sensor.victoria
     - sensor.waterloo__city
+
+network_stats:
+  name: Network
+  entities:
+    - sensor.igd_packets_received
+    - sensor.igd_packets_sent
+    - sensor.igd_received_bytes
+    - sensor.igd_sent_bytes
 
 office_devices:
   name: Devices
