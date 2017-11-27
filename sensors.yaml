@@ -47,7 +47,7 @@
 - platform: pi_hole      
   host: localhost:9000
 
-- platform: steam_Online
+- platform: steam_online
   api_key: !secret steam_api_key
   accounts:
     - !secret steam_uid
