@@ -42,6 +42,7 @@ office:
     - group.office_sensors
     - group.pi_stats
     - camera.office_camera
+    - media_player.office_home_mini
     - media_player.spotify
     - switch.office_camera_switch
     - switch.wake_adams_pc
