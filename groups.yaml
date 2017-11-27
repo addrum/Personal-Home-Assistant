@@ -66,7 +66,7 @@ travel:
   view: true
   entities:
     - group.london_underground_status
-    - group.uber_stats
+    # - group.uber_stats
     - group.travel_sensors      
 
 # Groups
@@ -193,13 +193,13 @@ travel_sensors:
     - sensor.time_to_work      
     - sensor.time_to_hockey_training
 
-uber_stats:
-  name: Uber
-  entities:
-    - sensor.uberx_price
-    - sensor.uberx_time
-    - sensor.uberxl_price
-    - sensor.uberxl_time
+# uber_stats:
+#   name: Uber
+#   entities:
+#     - sensor.uberx_price
+#     - sensor.uberx_time
+#     - sensor.uberxl_price
+#     - sensor.uberxl_time
 
 visitor_devices:
   name: Visitors
