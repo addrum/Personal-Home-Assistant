@@ -83,6 +83,7 @@
 
 - platform: template
   sensors:
+    # devices
     adams_laptop:
       value_template: '{% if is_state("device_tracker.adams_laptop", "home") %}Online{% else %}Offline{% endif %}'
       friendly_name: 'Adams Laptop'
@@ -121,6 +122,7 @@
       friendly_name: 'Steam Link'
       icon_template: mdi:steam
 
+    # calendars
     adams_calendar:
       value_template: >
         {{ strptime(states.calendar.adamshort1994gmailcom.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%d %B, %H:%M") }}:
@@ -161,6 +163,11 @@
       unit_of_measurement: ''
       icon_template: mdi:soccer
 
+    # sensors/other
+    date:
+      value_template: '{{ as_timestamp(sensor.date) | timestamp_custom("%-A %d %b %Y") }}'
+      friendly_name: 'Date'
+
     jubilee_line_delayed:
       entity_id: sensor.jubilee
       value_template: '{% if states("sensor.jubilee") != "Good Service" %}true{% else %}false{% endif %}'
@@ -175,11 +182,11 @@
       icon_template: mdi:google-controller
 
     sunrise:
-      value_template: '{{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom("%-I:%M %p") }}'
+      value_template: '{{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom("%-H:%M") }}'
       friendly_name: 'Sunrise'
       icon_template: mdi:weather-sunset-up
 
     sunset:
-      value_template: '{{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom("%-I:%M %p") }}'
+      value_template: '{{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom("%-H:%M") }}'
       friendly_name: 'Sunset'
       icon_template: mdi:weather-sunset-down
