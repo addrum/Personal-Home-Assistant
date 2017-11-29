@@ -118,7 +118,9 @@ home_devices:
     - device_tracker.catherines_macbook_pro
     - device_tracker.nexus_5
     - sensor.adams_laptop
-    - snesor.adams_pc
+    - sensor.adams_pc
+    - sensor.living_room_home
+    - sensor.office_home_mini
     - sensor.printer
     - sensor.router
     - sensor.steam_link

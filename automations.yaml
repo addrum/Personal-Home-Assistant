@@ -75,6 +75,8 @@
   action:
     - service: light.turn_on
       entity_id: light.living_room
+    - service: light.turn_on
+      entity_id: light.stairs_light
 
 - alias: Turn off all lights at night (weekday)
   trigger:
@@ -211,9 +213,9 @@
   action:
     - service: light.turn_on
       entity_id: light.stairs_light
-    - service: notify.pushbullet
-      data:
-        message: "Stairs light turned on"
+    # - service: notify.pushbullet
+    #   data:
+    #     message: "Stairs light turned on"
 
 - alias: Update notifications
   trigger:
