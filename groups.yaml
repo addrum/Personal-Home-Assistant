@@ -20,6 +20,12 @@ devices:
     - group.visitor_devices
     - group.all_devices
 
+kitchen:
+  name: kitchen
+  view: true
+  entities:
+    - media_player.kitchen_home_mini
+
 living_room:
   name: Living Room
   view: true
@@ -102,6 +108,7 @@ calendars:
     - sensor.catherines_calendar
     - sensor.f1_calendar
     - sensor.liverpool_calendar
+    - sensor.hockey_calendar
 
 family:
   name: Family      
@@ -119,6 +126,7 @@ home_devices:
     - device_tracker.nexus_5
     - sensor.adams_laptop
     - sensor.adams_pc
+    - sensor.kitchen_home_mini
     - sensor.living_room_home
     - sensor.office_home_mini
     - sensor.printer

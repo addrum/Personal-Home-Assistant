@@ -87,24 +87,35 @@
       value_template: '{% if is_state("device_tracker.adams_laptop", "home") %}Online{% else %}Offline{% endif %}'
       friendly_name: 'Adams Laptop'
       icon_template: mdi:laptop-windows
+
     adams_pc:
       value_template: '{% if is_state("device_tracker.adams_pc", "home") %}Online{% else %}Offline{% endif %}'
       friendly_name: 'Adams PC'
       icon_template: mdi:windows
+
+    kitchen_home_mini:
+      value_template: '{% if is_state("device_tracker.kitchen_home_mini", "home") %}Online{% else %}Offline{% endif %}'
+      friendly_name: 'Kitchen Home Mini'
+      icon_template: mdi:google
+
     living_room_home:
       value_template: '{% if is_state("device_tracker.living_room_home", "home") %}Online{% else %}Offline{% endif %}'
       friendly_name: 'Living Room Home'
       icon_template: mdi:google
+
     office_home_mini:
       value_template: '{% if is_state("device_tracker.office_home_mini", "home") %}Online{% else %}Offline{% endif %}'
       friendly_name: 'Office Home Mini'
       icon_template: mdi:google
+
     printer:
       value_template: '{% if is_state("device_tracker.printer", "home") %}On{% else %}Off{% endif %}'
       friendly_name: 'Printer'
+
     router:
       value_template: '{% if is_state("device_tracker.router", "home") %}Online{% else %}Offline{% endif %}'
       friendly_name: 'Router'    
+
     steam_link:
       value_template: '{% if is_state("device_tracker.steam_link", "home") %}Online{% else %}Offline{% endif %}'
       friendly_name: 'Steam Link'
@@ -114,7 +125,7 @@
       value_template: >
         {{ strptime(states.calendar.adamshort1994gmailcom.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%d %B, %H:%M") }}:
         {{ states.calendar.adamshort1994gmailcom.attributes.message }}
-      friendly_name: Adam's Next Event
+      friendly_name: Adam
       unit_of_measurement: ''
       icon_template: mdi:calendar
 
@@ -122,7 +133,7 @@
       value_template: >
         {{ strptime(states.calendar.cathybrooks94gmailcom.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%d %B, %H:%M") }}:
         {{ states.calendar.cathybrooks94gmailcom.attributes.message }}
-      friendly_name: Catherine's Next Event
+      friendly_name: Catherine
       unit_of_measurement: ''
       icon_template: mdi:calendar
 
@@ -130,7 +141,7 @@
       value_template: >
         {{ strptime(states.calendar.formula_one_calendar_by_f1_fanatic.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%d %B, %H:%M") }}:
         {{ states.calendar.formula_one_calendar_by_f1_fanatic.attributes.message }}
-      friendly_name: Next F1 Event
+      friendly_name: F1 Events
       unit_of_measurement: ''
       icon_template: mdi:car-sports
 
@@ -138,7 +149,15 @@
       value_template: >
         {{ strptime(states.calendar.liverpool_fc_calendar__fixtures__results.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%d %B, %H:%M") }}:
         {{ states.calendar.liverpool_fc_calendar__fixtures__results.attributes.message }}
-      friendly_name: Next Liverpool Fixture
+      friendly_name: Liverpool Fixtures
+      unit_of_measurement: ''
+      icon_template: mdi:soccer
+
+    hockey_calendar:
+      value_template: >
+        {{ strptime(states.calendar.hhc_mens_2s_.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%d %B, %H:%M") }}:
+        {{ states.calendar.hhc_mens_2s_.attributes.message }}
+      friendly_name: Hockey
       unit_of_measurement: ''
       icon_template: mdi:soccer
 
