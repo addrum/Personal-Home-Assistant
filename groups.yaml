@@ -98,7 +98,7 @@ bitcoin_stats:
 date_time:
   name: Clock
   entities:
-    - sensor.date
+    - sensor.custom_date
     - sensor.time
 
 calendars:
