@@ -1,5 +1,5 @@
 - platform: nmap_tracker
-  hosts: 192.168.0.1/24
+  hosts: 192.168.0.1-255
   home_interval: 10
   # scan_options: " -PS135,445 -F --host-timeout 5s"
   exclude:
@@ -9,3 +9,4 @@
     - 192.168.0.23 # TV
 
 - platform: bluetooth_tracker
+  track_new_devices: no
