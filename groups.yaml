@@ -57,7 +57,6 @@ stats:
   name: Stats
   view: true
   entities:
-    - group.network_stats
     - group.pi_stats
     - group.pi_hole_stats 
 
@@ -95,10 +94,17 @@ bitcoin_stats:
     - sensor.hash_rate
     - sensor.trade_volume
 
+catherines_devices:
+  entities:
+    # ios device
+    - device_tracker.catherines_iphone
+    - device_tracker.catherines_iphone_bt
+    - device_tracker.catherines_iphone_wifi
+
 date_time:
   name: Clock
   entities:
-    - sensor.custom_date
+    - sensor.date
     - sensor.time
 
 calendars:
@@ -110,12 +116,17 @@ calendars:
     - sensor.liverpool_calendar
     - sensor.hockey_calendar
 
+family_devices:
+  name: Family Devices
+  entities:
+    - group.adams_devices
+    - group.catherines_devices
+
 family:
   name: Family      
   entities:
     - device_tracker.adams_phone_bt
-    - device_tracker.adams_phone_wifi
-    - device_tracker.catherines_phone_wifi
+    - device_tracker.catherines_iphone_bt
 
 home_devices:
   name: Home Devices
@@ -162,14 +173,6 @@ london_underground_status:
     - sensor.tfl_rail
     - sensor.victoria
     - sensor.waterloo__city
-
-network_stats:
-  name: Network
-  entities:
-    - sensor.igd_packets_received
-    - sensor.igd_packets_sent
-    - sensor.igd_received_bytes
-    - sensor.igd_sent_bytes
 
 office_devices:
   name: Devices

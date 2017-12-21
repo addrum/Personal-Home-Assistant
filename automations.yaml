@@ -129,21 +129,21 @@
       data:
         message: "All lights turned off"   
 
-# - alias: Turn off all lights if no one is home
-#   trigger:
-#     - platform: state
-#       entity_id: group.family
-#       to: 'not_home'
-#   condition:  
-#     - condition: state
-#       entity_id: group.all_lights
-#       state: 'on'
-#   action:
-#     - service: light.turn_off
-#       entity_id: group.all_lights
-#     - service: notify.pushbullet
-#       data:
-#         message: "Turned all lights off as no one is home"
+- alias: Turn off all lights if no one is home
+  trigger:
+    - platform: state
+      entity_id: group.family_devices
+      to: 'not_home'
+  condition:  
+    - condition: state
+      entity_id: group.all_lights
+      state: 'on'
+  action:
+    - service: light.turn_off
+      entity_id: group.all_lights
+    - service: notify.pushbullet
+      data:
+        message: "Turned all lights off as no one is home"
 
 - alias: Turn office lights on at sunset if Adam is home
   trigger:
@@ -175,7 +175,7 @@
       event: sunset
       offset: "-00:30:00"
     - platform: state
-      entity_id: group.family
+      entity_id: group.family_devices
       to: 'home'
   condition:  
     condition: and
@@ -184,7 +184,7 @@
         after: sunset
         after_offset: "-00:30:00"
       - condition: state
-        entity_id: group.family
+        entity_id: group.family_devices
         state: 'home'
   action:
     - service: light.turn_on
@@ -199,7 +199,7 @@
       event: sunset
       offset: "-00:30:00"
     - platform: state
-      entity_id: group.family
+      entity_id: group.family_devices
       to: 'home'
   condition:  
     condition: and
@@ -208,7 +208,7 @@
         after: sunset
         after_offset: "-00:30:00"
       - condition: state
-        entity_id: group.family
+        entity_id: group.family_devices
         state: 'home'
   action:
     - service: light.turn_on
