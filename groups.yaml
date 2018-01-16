@@ -97,7 +97,6 @@ bitcoin_stats:
 catherines_devices:
   entities:
     # ios device
-    - device_tracker.catherines_iphone
     - device_tracker.catherines_iphone_bt
     - device_tracker.catherines_iphone_wifi
 

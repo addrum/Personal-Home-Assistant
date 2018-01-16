@@ -164,9 +164,9 @@
       icon_template: mdi:soccer
 
     # sensors/other
-    date:
-      value_template: '{{ as_timestamp(sensor.date) | timestamp_custom("%A %d %b %Y") }}'
-      friendly_name: 'Date'
+    # custom_date:
+    #   value_template: '{{ as_timestamp(sensor.date) | timestamp_custom("%A %d %b %Y") }}'
+    #   friendly_name: 'Date'
 
     jubilee_line_delayed:
       entity_id: sensor.jubilee

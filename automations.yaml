@@ -77,6 +77,9 @@
       entity_id: light.living_room
     - service: light.turn_on
       entity_id: light.stairs_light
+    # - service: notify.pushbullet
+    #   data:
+    #     message: "Living room and stairs lights turned on"
 
 - alias: Turn off all lights at night (weekday)
   trigger:
@@ -125,9 +128,9 @@
   action:
     - service: light.turn_off
       entity_id: group.all_lights
-    - service: notify.pushbullet
-      data:
-        message: "All lights turned off"   
+    # - service: notify.pushbullet
+    #   data:
+    #     message: "All lights turned off"   
 
 - alias: Turn off all lights if no one is home
   trigger:
@@ -141,9 +144,9 @@
   action:
     - service: light.turn_off
       entity_id: group.all_lights
-    - service: notify.pushbullet
-      data:
-        message: "Turned all lights off as no one is home"
+    # - service: notify.pushbullet
+    #   data:
+    #     message: "Turned all lights off as no one is home"
 
 - alias: Turn office lights on at sunset if Adam is home
   trigger:
