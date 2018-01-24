@@ -18,6 +18,7 @@ homeassistant:
 
 # Enables the frontend
 frontend:
+  themes: !include themes.yaml
 
 # Enables configuration UI
 config:
@@ -64,8 +65,6 @@ google:
 
 ios:
 
-upnp:
-
 #emulated_hue:
 #  listen_port: 80
 
@@ -77,7 +76,8 @@ automation: !include automations.yaml
 camera: !include cameras.yaml
 device_tracker: !include device_tracker.yaml
 group: !include groups.yaml
-input_boolean: !include booleans.yaml
+input_boolean: !include input_booleans.yaml
+input_number: !include input_numbers.yaml
 media_player: !include media_players.yaml
 notify: !include notifiers.yaml
 sensor: !include sensors.yaml

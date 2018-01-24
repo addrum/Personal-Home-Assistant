@@ -1,7 +1,9 @@
-- alias: Jubilee Line Delayed
+# Notifiers
+- id: jubilee_line_delayed
+  alias: Jubilee Line Delayed
   trigger:
     platform: state
-    entity_id: sensor.jubilee_line_delayed
+    entity_id: sensor.jubilee
     to: 'true'
   condition:
     - condition: time
@@ -13,10 +15,11 @@
         title: "Jubilee Line - {{ states.sensor.jubilee.state }}"
         message: "{{ states.sensor.jubilee.attributes.Description }}"
 
-- alias: Metropolitan Line Delayed
+- id: metropolitan_line_delayed
+  alias: Metropolitan Line Delayed
   trigger:
     platform: state
-    entity_id: sensor.met_line_delayed
+    entity_id: sensor.metropolitan
     to: 'true'
   condition:
     - condition: time
@@ -25,7 +28,7 @@
   action:
     - service: notify.pushbullet
       data:
-        title: "Metropolitan Line - {{ states.sensor.jubilee.state }}"
+        title: "Metropolitan Line - {{ states.sensor.metropolitan.state }}"
         message: "{{ states.sensor.metropolitan.attributes.Description }}"
 
 # - alias: Start webcam recording when Adam is not home
@@ -60,7 +63,9 @@
 #       data:
 #         message: "Office camera stopped recording"
 
-- alias: Turn lights on in the morning (weekday)
+# Lights
+- id: lights_on_am_weekday
+  alias: Turn lights on in the morning (weekday)
   trigger:
     platform: time
     at: '07:00:00'
@@ -81,7 +86,8 @@
     #   data:
     #     message: "Living room and stairs lights turned on"
 
-- alias: Turn off all lights at night (weekday)
+- id: lights_off_pm_weekday
+  alias: Turn off all lights at night (weekday)
   trigger:
     platform: time
     at: '23:30:00'
@@ -100,7 +106,8 @@
     #   data:
     #     message: "All lights turned off"
 
-- alias: Turn off all lights at night (weekend)
+- id: lights_off_pm_weekend
+  alias: Turn off all lights at night (weekend)
   trigger:
     platform: time
     at: '03:00:00'
@@ -116,7 +123,8 @@
     #   data:
     #     message: "All lights turned off"
 
-- alias: Turn off all lights in the morning after sunrise
+- id: lights_off_am
+  alias: Turn off all lights in the morning after sunrise
   trigger:
     - platform: sun
       event: sunrise
@@ -132,7 +140,8 @@
     #   data:
     #     message: "All lights turned off"   
 
-- alias: Turn off all lights if no one is home
+- id: lights_off_away
+  alias: Turn off all lights if no one is home
   trigger:
     - platform: state
       entity_id: group.family_devices
@@ -172,7 +181,8 @@
     #   data:
     #     message: "Office lights turned on"
 
-- alias: Turn living room lights on at sunset if someone is home
+- id: living_room_lights_on_pm_home
+  alias: Turn living room lights on at sunset if someone is home
   trigger:
     - platform: sun
       event: sunset
@@ -196,7 +206,8 @@
     #   data:
     #     message: "Living room lights turned on"
 
-- alias: Turn stairs light on when someone gets home
+- id: landing_lights_on_pm_home
+  alias: Turn stairs light on when someone gets home
   trigger:
     - platform: sun
       event: sunset
@@ -215,12 +226,13 @@
         state: 'home'
   action:
     - service: light.turn_on
-      entity_id: light.stairs_light
+      entity_id: light.landing
     # - service: notify.pushbullet
     #   data:
     #     message: "Stairs light turned on"
 
-- alias: Update notifications
+- id: update_notifications
+  alias: Update notifications
   trigger:
     platform: state
     entity_id: updater.updater
@@ -228,4 +240,34 @@
     - service: notify.pushbullet
       data: 
         title: 'New Home Assistant Release'
-        message: "Home Assistant  {{ states.updater.updater.state }}  is now available."
+        message: "Home Assistant {{ states.updater.updater.state }} is now available."
+
+
+# Inputs
+- id: living_room_brightness
+  alias: "Set Living Room Brightness"
+  initial_state: on
+  trigger:
+    platform: state
+    entity_id: input_number.brightness_living_room
+  action:
+    service: light.turn_on
+    data:
+      entity_id:
+        - light.living_room
+    data_template:
+      brightness: '{{ (trigger.to_state.state|int * 2.55) | round }}'
+
+- id: office_brightness
+  alias: "Set Office Brightness"
+  initial_state: on
+  trigger:
+    platform: state
+    entity_id: input_number.brightness_office
+  action:
+    service: light.turn_on
+    data:
+      entity_id:
+        - light.office
+    data_template:
+      brightness: '{{ (trigger.to_state.state|int * 2.55) | round }}'

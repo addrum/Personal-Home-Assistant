@@ -2,8 +2,9 @@
 default_view:
   name: default_view
   view: true
+  icon: mdi:home-assistant
   entities:
-    - group.all_lights
+    - group.light_groups
     - group.bitcoin_stats
     - group.calendars
     - group.family
@@ -14,6 +15,7 @@ default_view:
 devices:
   name: Devices
   view: true
+  icon: mdi:cellphone
   entities:
     - group.family
     - group.home_devices
@@ -23,15 +25,18 @@ devices:
 kitchen:
   name: kitchen
   view: true
+  icon: mdi:fridge
   entities:
     - media_player.kitchen_home_mini
 
 living_room:
   name: Living Room
   view: true
+  icon: mdi:television
   entities:
     - group.living_room_devices 
     - group.living_room_lights
+    - group.living_room_sensors
     - media_player.tv
     - media_player.unnamed_device
     - media_player.panasonic_viera_tv
@@ -39,23 +44,24 @@ living_room:
     - media_player.spotify
 
 office:
-  name: OFfice
+  name: Office
   view: true
+  icon: mdi:laptop
   entities:
     - group.adams_pc_stats
     - group.office_devices
     - group.office_lights
     - group.office_sensors
     - group.pi_stats
-    - camera.office_camera
+    - group.office_switches
+    # - camera.office_camera
     - media_player.office_home_mini
     - media_player.spotify
-    - switch.office_camera_switch
-    - switch.wake_adams_pc
 
 stats:
   name: Stats
   view: true
+  icon: mdi:poll
   entities:
     - group.pi_stats
     - group.pi_hole_stats 
@@ -63,6 +69,7 @@ stats:
 toggles:
   name: Toggles
   view: true
+  icon: mdi:toggle-switch
   entities:
     - group.all_automations
     - group.all_switches
@@ -71,9 +78,9 @@ toggles:
 travel:
   name: Travel
   view: true
+  icon: mdi:train
   entities:
     - group.london_underground_status
-    # - group.uber_stats
     - group.travel_sensors      
 
 # Groups
@@ -103,7 +110,7 @@ catherines_devices:
 date_time:
   name: Clock
   entities:
-    - sensor.date
+    - sensor.custom_date
     - sensor.time
 
 calendars:
@@ -131,29 +138,44 @@ home_devices:
   name: Home Devices
   entities:
     - device_tracker.adams_moto_360
-    - device_tracker.nexus_9
+    - device_tracker.adams_nexus_9_bt
     - device_tracker.catherines_macbook_pro
     - device_tracker.nexus_5
-    - sensor.adams_laptop
     - sensor.adams_pc
     - sensor.kitchen_home_mini
+    - sensor.laptop
     - sensor.living_room_home
     - sensor.office_home_mini
     - sensor.printer
     - sensor.router
     - sensor.steam_link
 
+light_groups:
+  name: Lights
+  entities:
+    - light.landing
+    - light.living_room
+    - light.office
+
 living_room_devices:
   name: Devices
   entities:
     - sensor.steam_link
     - sensor.router
+    - device_tracker.nintendo_switch
 
 living_room_lights:
   name: Lights
   entities:
+    - input_number.brightness_living_room
     - light.black_lamp
     - light.catherines_desk_lamp
+
+living_room_sensors:
+  name: Sensors
+  entities:
+    - sensor.steam_76561198043609312
+    - sensor.steam_game
 
 london_underground_status:
   name: London Underground Status
@@ -179,11 +201,13 @@ office_devices:
     - sensor.adams_pc
     - sensor.adams_laptop
     - sensor.printer
-    - device_tracker.nexus_9
+    - device_tracker.nintendo_switch
+    - device_tracker.adams_nexus_9_bt
 
 office_lights:
   name: Lights
   entities:
+    - input_number.brightness_office
     - light.desk_lightstrip
 
 office_sensors:
@@ -191,6 +215,13 @@ office_sensors:
   entities:
     - sensor.steam_76561198043609312
     - sensor.steam_game
+
+office_switches:
+  name: Switches
+  entities:
+    - input_boolean.working_from_home
+    - switch.office_camera_switch
+    - switch.wake_adams_pc
 
 pi_hole_stats:
   name: Pi Hole
@@ -213,20 +244,6 @@ travel_sensors:
   entities:
     - sensor.time_to_work      
     - sensor.time_to_hockey_training
-
-# uber_stats:
-#   name: Uber
-#   entities:
-#     - sensor.uberx_price
-#     - sensor.uberx_time
-#     - sensor.uberxl_price
-#     - sensor.uberxl_time
-
-visitor_devices:
-  name: Visitors
-  entities:
-    - device_tracker.evies_phone
-    - device_tracker.laurens_phone
 
 weather:
   name: Weather
