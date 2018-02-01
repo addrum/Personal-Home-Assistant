@@ -73,7 +73,7 @@
     service: input_number.set_value
     data_template:
       entity_id: input_slider.brightness_living_room
-      value: "{{ trigger.to_state.state }}"
+      value: "{{ states.sensor.living_room_brightness.state / 2.55 | round(0) }}"
 
 - id: office_brightness_sync
   alias: Sync office brightness
@@ -84,7 +84,7 @@
     service: input_number.set_value
     data_template:
       entity_id: input_slider.brightness_office
-      value: "{{ trigger.to_state.state }}"
+      value: "{{ states.sensor.office_brightness.state / 2.55 | round(0) }}"
 
 - id: lights_on_am_weekday
   alias: Turn lights on in the morning (weekday)
@@ -277,7 +277,7 @@
       entity_id:
         - light.living_room
     data_template:
-      brightness: '{{ trigger.to_state.state | int }}'
+      brightness: '{{ trigger.to_state.state | int * 2.55 | round(0) }}'
 
 - id: office_brightness
   alias: "Set Office Brightness"
@@ -291,7 +291,7 @@
       entity_id:
         - light.office
     data_template:
-      brightness: '{{ trigger.to_state.state | int }}'
+      brightness: '{{ trigger.to_state.state | int * 2.55 | round(0) }}'
 
 # General
 - id: hide_steam_if_link_offline
