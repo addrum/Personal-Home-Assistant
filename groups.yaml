@@ -64,6 +64,7 @@ stats:
   view: true
   icon: mdi:poll
   entities:
+    - group.bitcoin_stats
     - group.pi_stats
     - group.pi_hole_stats 
 
