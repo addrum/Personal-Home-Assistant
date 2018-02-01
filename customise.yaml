@@ -24,6 +24,8 @@ group.all_lights:
 group.all_switches:
   friendly_name: Switches
   hidden: false
+group.living_room_steam_sensors:
+  hidden: false
 
 # media players
 media_player.unnamed_device:

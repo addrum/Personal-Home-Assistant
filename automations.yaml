@@ -64,6 +64,28 @@
 #         message: "Office camera stopped recording"
 
 # Lights
+- id: living_room_brightness_sync
+  alias: Sync living room brightness
+  trigger:
+    platform: state
+    entity_id: sensor.living_room_brightness
+  action:
+    service: input_number.set_value
+    data_template:
+      entity_id: input_slider.brightness_living_room
+      value: "{{ trigger.to_state.state }}"
+
+- id: office_brightness_sync
+  alias: Sync office brightness
+  trigger:
+    platform: state
+    entity_id: sensor.office_brightness
+  action:
+    service: input_number.set_value
+    data_template:
+      entity_id: input_slider.brightness_office
+      value: "{{ trigger.to_state.state }}"
+
 - id: lights_on_am_weekday
   alias: Turn lights on in the morning (weekday)
   trigger:
@@ -242,7 +264,6 @@
         title: 'New Home Assistant Release'
         message: "Home Assistant {{ states.updater.updater.state }} is now available."
 
-
 # Inputs
 - id: living_room_brightness
   alias: "Set Living Room Brightness"
@@ -256,7 +277,7 @@
       entity_id:
         - light.living_room
     data_template:
-      brightness: '{{ (trigger.to_state.state|int * 2.55) | round }}'
+      brightness: '{{ trigger.to_state.state | int }}'
 
 - id: office_brightness
   alias: "Set Office Brightness"
@@ -270,4 +291,43 @@
       entity_id:
         - light.office
     data_template:
-      brightness: '{{ (trigger.to_state.state|int * 2.55) | round }}'
+      brightness: '{{ trigger.to_state.state | int }}'
+
+# General
+- id: hide_steam_if_link_offline
+  alias: "Hide Steam sensors if Steam Link is off"
+  trigger:
+    platform: state
+    entity_id: sensor.steam_link
+    to: 'Offline'
+  action:
+    service: group.set_visibility
+    entity_id: group.living_room_steam_sensors
+    data:
+      visible: False
+
+- id: show_steam_if_link_online
+  alias: "Show Steam sensors if Steam Link is on"
+  trigger:
+    platform: state
+    entity_id: sensor.steam_link
+    to: 'Online'
+  action:
+    service: group.set_visibility
+    entity_id: group.living_room_steam_sensors
+    data:
+      visible: True
+
+- id: turn_on_adams_pc_when_home
+  alias: "Turn on Adam's PC when Adam gets home between 11am and 10pm"
+  trigger:
+    - platform: state
+      entity_id: group.adams_devices
+      to: 'home'
+  condition:
+    - condition: time
+      after: '11:00:00'
+      before: '22:00:00'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.wake_adams_pc

@@ -37,11 +37,11 @@ living_room:
     - group.living_room_devices 
     - group.living_room_lights
     - group.living_room_sensors
+    - group.living_room_steam_sensors
     - media_player.tv
     - media_player.unnamed_device
     - media_player.panasonic_viera_tv
     - media_player.living_room_home
-    - media_player.spotify
 
 office:
   name: Office
@@ -53,6 +53,7 @@ office:
     - group.office_lights
     - group.office_sensors
     - group.pi_stats
+    - group.office_steam_sensors
     - group.office_switches
     # - camera.office_camera
     - media_player.office_home_mini
@@ -171,8 +172,8 @@ living_room_lights:
     - light.black_lamp
     - light.catherines_desk_lamp
 
-living_room_sensors:
-  name: Sensors
+living_room_steam_sensors:
+  name: Steam
   entities:
     - sensor.steam_76561198043609312
     - sensor.steam_game
@@ -210,14 +211,15 @@ office_lights:
     - input_number.brightness_office
     - light.desk_lightstrip
 
-office_sensors:
-  name: Sensors      
+office_steam_sensors:
+  name: Steam
   entities:
     - sensor.steam_76561198043609312
     - sensor.steam_game
 
 office_switches:
   name: Switches
+  control: hidden
   entities:
     - input_boolean.working_from_home
     - switch.office_camera_switch

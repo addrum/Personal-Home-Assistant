@@ -166,6 +166,13 @@
       unit_of_measurement: ''
       icon_template: mdi:soccer
 
+    # lights
+    living_room_brightness:
+       value_template: "{{ states.light.living_room.attributes.brightness }}"
+
+    office_brightness:
+       value_template: "{{ states.light.office.attributes.brightness }}"
+
     # sensors/other
     custom_date:
       value_template: '{{ as_timestamp(now()) | timestamp_custom("%A, %d %B %Y") }}'
