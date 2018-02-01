@@ -223,6 +223,7 @@ office_switches:
   entities:
     - input_boolean.working_from_home
     - switch.office_camera_switch
+    - switch.update_home_assistant
     - switch.wake_adams_pc
 
 pi_hole_stats:
