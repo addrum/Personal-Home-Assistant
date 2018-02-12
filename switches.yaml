@@ -1,15 +1,13 @@
 - platform: command_line
   switches:
-    update_home_assistant:
-      command_on: "./scripts/upgrade_hass.sh"
-      friendly_name: Update Home Assistant
-
-- platform: command_line
-  switches:
     office_camera_switch:
       command_on: "python3 /home/homeassistant/.homeassistant/camera_recording.py 0 true"
       command_off: "python3 /home/homeassistant/.homeassistant/camera_recording.py 0 false"
       friendly_name: Office Camera Recording
+    update_home_assistant:
+      command_on: "./scripts/upgrade_hass.sh"
+      command_state: 1
+      friendly_name: Update Home Assistant
 
 - platform: wake_on_lan
   mac_address: !secret pc_mac_address 

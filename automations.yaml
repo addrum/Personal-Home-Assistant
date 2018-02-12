@@ -1,35 +1,52 @@
-# Notifiers
-- id: jubilee_line_delayed
-  alias: Jubilee Line Delayed
+# General
+- id: hide_steam_if_link_offline
+  alias: "Hide Steam sensors if Steam Link is off"
   trigger:
     platform: state
-    entity_id: sensor.jubilee
-    to: 'true'
-  condition:
-    - condition: time
-      after: '05:00:00'
-      before: '22:00:00'
+    entity_id: sensor.steam_link
+    to: 'Offline'
   action:
-    - service: notify.pushbullet
-      data:
-        title: "Jubilee Line - {{ states.sensor.jubilee.state }}"
-        message: "{{ states.sensor.jubilee.attributes.Description }}"
+    service: group.set_visibility
+    entity_id: group.living_room_steam_sensors
+    data:
+      visible: False
 
-- id: metropolitan_line_delayed
-  alias: Metropolitan Line Delayed
+- id: show_steam_if_link_online
+  alias: "Show Steam sensors if Steam Link is on"
   trigger:
     platform: state
-    entity_id: sensor.metropolitan
-    to: 'true'
+    entity_id: sensor.steam_link
+    to: 'Online'
+  action:
+    service: group.set_visibility
+    entity_id: group.living_room_steam_sensors
+    data:
+      visible: True
+
+- id: turn_on_adams_pc_when_home
+  alias: "Turn on Adam's PC when Adam gets home between 11am and 10pm"
+  trigger:
+    - platform: state
+      entity_id: group.adams_devices
+      to: 'home'
   condition:
     - condition: time
-      after: '05:00:00'
+      after: '11:00:00'
       before: '22:00:00'
   action:
+    - service: homeassistant.turn_on
+      entity_id: switch.wake_adams_pc
+
+- id: update_notifications
+  alias: Update notifications
+  trigger:
+    platform: state
+    entity_id: updater.updater
+  action:
     - service: notify.pushbullet
-      data:
-        title: "Metropolitan Line - {{ states.sensor.metropolitan.state }}"
-        message: "{{ states.sensor.metropolitan.attributes.Description }}"
+      data: 
+        title: 'New Home Assistant Release'
+        message: "Home Assistant {{ states.updater.updater.state }} is now available."
 
 # - alias: Start webcam recording when Adam is not home
 #   trigger:
@@ -63,29 +80,40 @@
 #       data:
 #         message: "Office camera stopped recording"
 
+# Notifiers
+- id: jubilee_line_delayed
+  alias: Jubilee Line Delayed
+  trigger:
+    platform: state
+    entity_id: sensor.jubilee
+    to: 'true'
+  condition:
+    - condition: time
+      after: '05:00:00'
+      before: '22:00:00'
+  action:
+    - service: notify.pushbullet
+      data:
+        title: "Jubilee Line - {{ states.sensor.jubilee.state }}"
+        message: "{{ states.sensor.jubilee.attributes.Description }}"
+
+- id: metropolitan_line_delayed
+  alias: Metropolitan Line Delayed
+  trigger:
+    platform: state
+    entity_id: sensor.metropolitan
+    to: 'true'
+  condition:
+    - condition: time
+      after: '05:00:00'
+      before: '22:00:00'
+  action:
+    - service: notify.pushbullet
+      data:
+        title: "Metropolitan Line - {{ states.sensor.metropolitan.state }}"
+        message: "{{ states.sensor.metropolitan.attributes.Description }}"
+
 # Lights
-- id: living_room_brightness_sync
-  alias: Sync living room brightness
-  trigger:
-    platform: state
-    entity_id: sensor.living_room_brightness
-  action:
-    service: input_number.set_value
-    data_template:
-      entity_id: input_slider.brightness_living_room
-      value: "{{ states.sensor.living_room_brightness.state / 2.55 | round(0) }}"
-
-- id: office_brightness_sync
-  alias: Sync office brightness
-  trigger:
-    platform: state
-    entity_id: sensor.office_brightness
-  action:
-    service: input_number.set_value
-    data_template:
-      entity_id: input_slider.brightness_office
-      value: "{{ states.sensor.office_brightness.state / 2.55 | round(0) }}"
-
 - id: lights_on_am_weekday
   alias: Turn lights on in the morning (weekday)
   trigger:
@@ -253,81 +281,79 @@
     #   data:
     #     message: "Stairs light turned on"
 
-- id: update_notifications
-  alias: Update notifications
+- id: living_room_brightness_sync
+  alias: Sync living room brightness
   trigger:
     platform: state
-    entity_id: updater.updater
+    entity_id: sensor.living_room_brightness
   action:
-    - service: notify.pushbullet
-      data: 
-        title: 'New Home Assistant Release'
-        message: "Home Assistant {{ states.updater.updater.state }} is now available."
+    service: input_number.set_value
+    data_template:
+      entity_id: input_number.brightness_living_room
+      value: "{{ states.sensor.living_room_brightness.state }}"
+
+- id: office_brightness_sync
+  alias: Sync office brightness
+  trigger:
+    platform: state
+    entity_id: sensor.office_brightness
+  action:
+    service: input_number.set_value
+    data_template:
+      entity_id: input_number.brightness_office
+      value: "{{ states.sensor.office_brightness.state }}"
+
+# - id: turn_living_room_slider_off
+#   alias: Turn living room slider off
+#   trigger:
+#     platform: state
+#     entity_id: sensor.living_room_state
+#     to: 'off'
+#   action:
+#     service: input_number.set_value
+#     data:
+#       entity_id: input_number.brightness_living_room
+#       value: 0
+
+# - id: turn_office_slider_off
+#   alias: Turn office slider off
+#   trigger:
+#     platform: state
+#     entity_id: sensor.office_state
+#     to: 'off'
+#   action:
+#     service: input_number.set_value
+#     data:
+#       entity_id: input_number.brightness_office
+#       value: 0
 
 # Inputs
 - id: living_room_brightness
-  alias: "Set Living Room Brightness"
+  alias: Set living room brightness
   initial_state: on
   trigger:
     platform: state
     entity_id: input_number.brightness_living_room
+  condition:
+    - condition: template
+      value_template: "{{ states.input_number.brightness_living_room.state > 0 }}"
   action:
     service: light.turn_on
-    data:
-      entity_id:
-        - light.living_room
     data_template:
-      brightness: '{{ trigger.to_state.state | int * 2.55 | round(0) }}'
+      entity_id: light.living_room
+      brightness: '{{ trigger.to_state.state }}'
 
 - id: office_brightness
-  alias: "Set Office Brightness"
+  alias: Set office brightness
   initial_state: on
   trigger:
     platform: state
     entity_id: input_number.brightness_office
+  condition:
+    - condition: template
+      value_template: "{{ states.input_number.brightness_office.state > 0 }}"
   action:
     service: light.turn_on
-    data:
-      entity_id:
-        - light.office
     data_template:
-      brightness: '{{ trigger.to_state.state | int * 2.55 | round(0) }}'
-
-# General
-- id: hide_steam_if_link_offline
-  alias: "Hide Steam sensors if Steam Link is off"
-  trigger:
-    platform: state
-    entity_id: sensor.steam_link
-    to: 'Offline'
-  action:
-    service: group.set_visibility
-    entity_id: group.living_room_steam_sensors
-    data:
-      visible: False
-
-- id: show_steam_if_link_online
-  alias: "Show Steam sensors if Steam Link is on"
-  trigger:
-    platform: state
-    entity_id: sensor.steam_link
-    to: 'Online'
-  action:
-    service: group.set_visibility
-    entity_id: group.living_room_steam_sensors
-    data:
-      visible: True
-
-- id: turn_on_adams_pc_when_home
-  alias: "Turn on Adam's PC when Adam gets home between 11am and 10pm"
-  trigger:
-    - platform: state
-      entity_id: group.adams_devices
-      to: 'home'
-  condition:
-    - condition: time
-      after: '11:00:00'
-      before: '22:00:00'
-  action:
-    - service: homeassistant.turn_on
-      entity_id: switch.wake_adams_pc
+      entity_id: light.office
+      brightness: "{{ trigger.to_state.state }}"

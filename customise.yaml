@@ -23,6 +23,7 @@ group.all_lights:
   hidden: false
 group.all_switches:
   friendly_name: Switches
+  control: hidden
   hidden: false
 
 # media players
@@ -62,7 +63,12 @@ sensor.log_db_file_size:
   icon: mdi:database
 
 # switches
-switch.living_room_camera_switch:
+switch.update_home_assistant:
   assumed_state: false
+  icon: mdi:home-assistant
 switch.office_camera_switch:
   assumed_state: false
+  icon: mdi:camera
+switch.wake_adams_pc:
+  assumed_state: false
+  icon: mdi:monitor

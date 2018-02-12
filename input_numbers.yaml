@@ -1,15 +1,13 @@
 brightness_living_room:
   name: Brightness
-  initial: 100
   min: 0
-  max: 100
+  max: 254
   step: 1
   mode: slider
 
 brightness_office:
   name: Brightness
-  initial: 100
   min: 0
-  max: 100
+  max: 254
   step: 1
   mode: slider

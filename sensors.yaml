@@ -170,8 +170,14 @@
     living_room_brightness:
        value_template: "{{ states.light.living_room.attributes.brightness }}"
 
+    living_room_state:
+       value_template: "{{ states.light.living_room.state }}"
+
     office_brightness:
        value_template: "{{ states.light.office.attributes.brightness }}"
+
+    office_state:
+       value_template: "{{ states.light.office.state }}"
 
     # sensors/other
     custom_date:
