@@ -85,7 +85,7 @@
   alias: Jubilee Line Delayed
   trigger:
     platform: state
-    entity_id: sensor.jubilee
+    entity_id: sensor.jubilee_line_delayed
     to: 'true'
   condition:
     - condition: time
@@ -101,7 +101,7 @@
   alias: Metropolitan Line Delayed
   trigger:
     platform: state
-    entity_id: sensor.metropolitan
+    entity_id: sensor.met_line_delayed
     to: 'true'
   condition:
     - condition: time

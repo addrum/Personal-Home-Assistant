@@ -1,0 +1,33 @@
+sensor.catherines_iphone_battery_level:
+  platform: ios
+  unique_id: level_catherines_iphone
+sensor.catherines_iphone_battery_state:
+  platform: ios
+  unique_id: state_catherines_iphone
+light.desk_lightstrip:
+  platform: hue
+  unique_id: 00:17:88:01:01:21:9c:3e-0b
+light.stairs_light:
+  platform: hue
+  unique_id: 00:17:88:01:03:d9:17:e6-0b
+light.catherines_desk_lamp:
+  platform: hue
+  unique_id: 00:17:88:01:02:46:4c:8c-0b
+light.black_lamp:
+  platform: hue
+  unique_id: 00:17:88:01:03:7f:c1:bb-0b
+media_player.tv:
+  platform: cast
+  unique_id: ef1cae5f-19d2-2de4-e47b-a6ddf3812b9f
+media_player.living_room_home:
+  platform: cast
+  unique_id: b2fb7c6a-6a50-d506-d6a4-e58e9fbfaf9c
+media_player.kitchen_home_mini:
+  platform: cast
+  unique_id: 7b7d5b33-ff9b-976d-8631-3ba257990cdc
+media_player.office_home_mini:
+  platform: cast
+  unique_id: df0c211a-98c1-15b4-04e6-7f8cfc9676cf
+media_player.home_group:
+  platform: cast
+  unique_id: 6571078f-c590-44f3-afd8-b2303b13d090
