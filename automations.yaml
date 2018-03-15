@@ -318,7 +318,7 @@
     service: input_number.set_value
     data_template:
       entity_id: input_number.brightness_living_room
-      value: "{{ states.sensor.living_room_brightness.state }}"
+      value: "{{ trigger.to_state.state | int }}"
 
 - id: office_brightness_sync
   alias: Sync office brightness
@@ -329,31 +329,7 @@
     service: input_number.set_value
     data_template:
       entity_id: input_number.brightness_office
-      value: "{{ states.sensor.office_brightness.state }}"
-
-# - id: turn_living_room_slider_off
-#   alias: Turn living room slider off
-#   trigger:
-#     platform: state
-#     entity_id: sensor.living_room_state
-#     to: 'off'
-#   action:
-#     service: input_number.set_value
-#     data:
-#       entity_id: input_number.brightness_living_room
-#       value: 0
-
-# - id: turn_office_slider_off
-#   alias: Turn office slider off
-#   trigger:
-#     platform: state
-#     entity_id: sensor.office_state
-#     to: 'off'
-#   action:
-#     service: input_number.set_value
-#     data:
-#       entity_id: input_number.brightness_office
-#       value: 0
+      value: "{{ trigger.to_state.state | int }}"
 
 # Inputs
 - id: living_room_brightness
@@ -362,14 +338,11 @@
   trigger:
     platform: state
     entity_id: input_number.brightness_living_room
-  condition:
-    - condition: template
-      value_template: "{{ states.input_number.brightness_living_room.state > 0 }}"
   action:
     service: light.turn_on
     data_template:
       entity_id: light.living_room
-      brightness: '{{ trigger.to_state.state }}'
+      brightness: "{{ trigger.to_state.state | int }}"
 
 - id: office_brightness
   alias: Set office brightness
@@ -377,11 +350,8 @@
   trigger:
     platform: state
     entity_id: input_number.brightness_office
-  condition:
-    - condition: template
-      value_template: "{{ states.input_number.brightness_office.state > 0 }}"
   action:
     service: light.turn_on
     data_template:
       entity_id: light.office
-      brightness: "{{ trigger.to_state.state }}"
+      brightness: "{{ trigger.to_state.state | int }}"
