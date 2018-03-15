@@ -190,6 +190,22 @@
     #   data:
     #     message: "All lights turned off"   
 
+- id: lights_off_am_time
+  alias: Turn off all lights in the morning at certain time
+  trigger:
+    platform: time
+    at: '9:30:00'
+  condition:  
+    - condition: state
+      entity_id: group.all_lights
+      state: 'on'
+  action:
+    - service: light.turn_off
+      entity_id: group.all_lights
+    # - service: notify.pushbullet
+    #   data:
+    #     message: "All lights turned off"   
+
 - id: lights_off_away
   alias: Turn off all lights if no one is home
   trigger:
@@ -280,6 +296,18 @@
     # - service: notify.pushbullet
     #   data:
     #     message: "Stairs light turned on"
+
+- id: landing_lights_off_pm
+  alias: Turn off landing lights at night
+  trigger:
+    platform: time
+    at: '22:30:00'
+  action:
+    - service: light.turn_off
+      entity_id: light.stairs_light
+    # - service: notify.pushbullet
+    #   data:
+    #     message: "All lights turned off"
 
 - id: living_room_brightness_sync
   alias: Sync living room brightness
