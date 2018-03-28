@@ -1,0 +1,1 @@
+lfc_notifier: python ~/.homeassistant/lfc_scraper/main.py

@@ -355,3 +355,13 @@
     data_template:
       entity_id: light.office
       brightness: "{{ trigger.to_state.state | int }}"
+
+# Trigger shell commands
+- id: lfc_notifier
+  alias: Notfify when LFC tickets are available
+  initial_state: on
+  trigger:
+    platform: time
+    at: '08:16:00'
+  action:
+    service: shell_command.lfc_notifier
