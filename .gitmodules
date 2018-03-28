@@ -1,0 +1,3 @@
+[submodule "lfc_scraper"]
+	path = lfc_scraper
+	url = git@github.com:addrum/lfc_scraper.git
