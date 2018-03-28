@@ -309,27 +309,27 @@
     #   data:
     #     message: "All lights turned off"
 
-- id: living_room_brightness_sync
-  alias: Sync living room brightness
-  trigger:
-    platform: state
-    entity_id: sensor.living_room_brightness
-  action:
-    service: input_number.set_value
-    data_template:
-      entity_id: input_number.brightness_living_room
-      value: "{{ trigger.to_state.state | int }}"
+# - id: living_room_brightness_sync
+#   alias: Sync living room brightness
+#   trigger:
+#     platform: state
+#     entity_id: sensor.living_room_brightness
+#   action:
+#     service: input_number.set_value
+#     data_template:
+#       entity_id: input_number.brightness_living_room
+#       value: "{{ trigger.to_state.state | int }}"
 
-- id: office_brightness_sync
-  alias: Sync office brightness
-  trigger:
-    platform: state
-    entity_id: sensor.office_brightness
-  action:
-    service: input_number.set_value
-    data_template:
-      entity_id: input_number.brightness_office
-      value: "{{ trigger.to_state.state | int }}"
+# - id: office_brightness_sync
+#   alias: Sync office brightness
+#   trigger:
+#     platform: state
+#     entity_id: sensor.office_brightness
+#   action:
+#     service: input_number.set_value
+#     data_template:
+#       entity_id: input_number.brightness_office
+#       value: "{{ trigger.to_state.state | int }}"
 
 # Inputs
 - id: living_room_brightness
