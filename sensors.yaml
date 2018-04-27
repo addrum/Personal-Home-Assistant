@@ -128,7 +128,7 @@
     # calendars
     adams_calendar:
       value_template: >
-        {{ strptime(states.calendar.adamshort1994gmailcom.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%d %B, %H:%M") }}:
+        {{ strptime(states.calendar.adamshort1994gmailcom.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%d %B, %H:%M") if states.calendar.adamshort1994gmailcom.attributes.start_time != None else 'No upcoming events' }}:
         {{ states.calendar.adamshort1994gmailcom.attributes.message }}
       friendly_name: Adam
       unit_of_measurement: ''
@@ -136,7 +136,7 @@
 
     catherines_calendar:
       value_template: >
-        {{ strptime(states.calendar.cathybrooks94gmailcom.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%d %B, %H:%M") }}:
+        {{ strptime(states.calendar.cathybrooks94gmailcom.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%d %B, %H:%M") if states.calendar.cathybrooks94gmailcom.attributes.start_time != None else 'No upcoming events' }}:
         {{ states.calendar.cathybrooks94gmailcom.attributes.message }}
       friendly_name: Catherine
       unit_of_measurement: ''
@@ -144,7 +144,7 @@
 
     f1_calendar:
       value_template: >
-        {{ strptime(states.calendar.formula_one_calendar_by_f1_fanatic.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%d %B, %H:%M") }}:
+        {{ strptime(states.calendar.formula_one_calendar_by_f1_fanatic.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%d %B, %H:%M") if states.calendar.formula_one_calendar_by_f1_fanatic.attributes.start_time != None else 'No upcoming events' }}:
         {{ states.calendar.formula_one_calendar_by_f1_fanatic.attributes.message }}
       friendly_name: F1 Events
       unit_of_measurement: ''
@@ -152,7 +152,7 @@
 
     liverpool_calendar:
       value_template: >
-        {{ strptime(states.calendar.liverpool_fc_calendar__fixtures__results.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%d %B, %H:%M") }}:
+        {{ strptime(states.calendar.liverpool_fc_calendar__fixtures__results.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%d %B, %H:%M") if states.calendar.liverpool_fc_calendar__fixtures__results.attributes.start_time != None else 'No upcoming events' }}:
         {{ states.calendar.liverpool_fc_calendar__fixtures__results.attributes.message }}
       friendly_name: Liverpool Fixtures
       unit_of_measurement: ''
@@ -160,8 +160,8 @@
 
     hockey_calendar:
       value_template: >
-        {{ strptime(states.calendar.hhc_mens_2s_.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%d %B, %H:%M") }}:
-        {{ states.calendar.hhc_mens_2s_.attributes.message }}
+          {{ strptime(states.calendar.hhc_mens_2s_.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%d %B, %H:%M") if states.calendar.hhc_mens_2s_.attributes.start_time != None else 'No upcoming events' }}:
+          {{ states.calendar.hhc_mens_2s_.attributes.message }}
       friendly_name: Hockey
       unit_of_measurement: ''
       icon_template: mdi:soccer

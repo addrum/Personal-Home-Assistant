@@ -65,8 +65,7 @@ google:
 
 ios:
 
-#emulated_hue:
-#  listen_port: 80
+cloud:
 
 light:
   - platform: hue
