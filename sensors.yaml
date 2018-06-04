@@ -11,22 +11,6 @@
   unit_of_measurement: 'MB'
   value_template: '{{ value | int - 1 }}'
 
-- platform: google_travel_time
-  api_key: !secret google_api_key 
-  name: Time to Work
-  origin: zone.home
-  destination: zone.work
-  options:
-    mode: transit
-
-- platform: google_travel_time
-  api_key: !secret google_api_key 
-  name: Time to Hockey Training
-  origin: zone.home
-  destination: zone.hockey
-  options:
-    mode: transit         
-
 - platform: london_underground
   line:
     - Bakerloo
@@ -64,11 +48,8 @@
   display_options:
     - 'time'
     - 'date'
-    - 'date_time'    
-
-# - platform: uber
-#   server_token: !secret uber_server_token      
-
+    - 'date_time'
+    
 - platform: wunderground
   api_key: !secret wu_api_key
   monitored_conditions:
