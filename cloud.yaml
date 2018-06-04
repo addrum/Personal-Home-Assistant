@@ -2,6 +2,16 @@ google_actions:
   filter:
     include_entities:
       - switch.wake_adams_pc
+    exclude_entities:
+      - light.entertainment_area_1
+      - light.landing
+      - light.living_room
+      - light.office
+      - switch.update_home_assistant
+    exclude_domains:
+      - group
+      - input_booleans
+      - media_player
   entity_config:
     switch.wake_adams_pc:
       name: Adam's PC
