@@ -1,33 +1,76 @@
 sensor.catherines_iphone_battery_level:
+  name:
   platform: ios
   unique_id: level_catherines_iphone
 sensor.catherines_iphone_battery_state:
+  name:
   platform: ios
   unique_id: state_catherines_iphone
 light.desk_lightstrip:
+  name:
   platform: hue
   unique_id: 00:17:88:01:01:21:9c:3e-0b
 light.stairs_light:
+  name:
   platform: hue
   unique_id: 00:17:88:01:03:d9:17:e6-0b
 light.catherines_desk_lamp:
+  name:
   platform: hue
   unique_id: 00:17:88:01:02:46:4c:8c-0b
 light.black_lamp:
+  name:
   platform: hue
   unique_id: 00:17:88:01:03:7f:c1:bb-0b
 media_player.tv:
+  name:
   platform: cast
   unique_id: ef1cae5f-19d2-2de4-e47b-a6ddf3812b9f
 media_player.living_room_home:
+  name:
   platform: cast
   unique_id: b2fb7c6a-6a50-d506-d6a4-e58e9fbfaf9c
 media_player.kitchen_home_mini:
+  name:
   platform: cast
   unique_id: 7b7d5b33-ff9b-976d-8631-3ba257990cdc
 media_player.office_home_mini:
+  name:
   platform: cast
   unique_id: df0c211a-98c1-15b4-04e6-7f8cfc9676cf
 media_player.home_group:
+  name:
   platform: cast
   unique_id: 6571078f-c590-44f3-afd8-b2303b13d090
+sensor.pws_alerts:
+  name:
+  platform: wunderground
+  unique_id: '@-0.346563,51.579484,alerts'
+sensor.pws_feelslike_c:
+  name:
+  platform: wunderground
+  unique_id: '@-0.346563,51.579484,feelslike_c'
+sensor.pws_precip_today_string:
+  name:
+  platform: wunderground
+  unique_id: '@-0.346563,51.579484,precip_today_string'
+sensor.pws_temp_low_1d_c:
+  name:
+  platform: wunderground
+  unique_id: '@-0.346563,51.579484,temp_low_1d_c'
+sensor.pws_wind_string:
+  name:
+  platform: wunderground
+  unique_id: '@-0.346563,51.579484,wind_string'
+sensor.pws_temp_c:
+  name:
+  platform: wunderground
+  unique_id: '@-0.346563,51.579484,temp_c'
+sensor.pws_temp_high_1d_c:
+  name:
+  platform: wunderground
+  unique_id: '@-0.346563,51.579484,temp_high_1d_c'
+media_player.50dx700_series:
+  name:
+  platform: panasonic_viera
+  unique_id: 4D454930-0200-1000-8001-D8AFF148127C

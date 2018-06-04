@@ -1,0 +1,8 @@
+google_actions:
+  filter:
+    include_entities:
+      - switch.wake_adams_pc
+  entity_config:
+    switch.wake_adams_pc:
+      name: Adam's PC
+      room: Office

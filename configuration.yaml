@@ -65,14 +65,13 @@ google:
 
 ios:
 
-cloud:
-
 light:
   - platform: hue
     host: 192.168.0.12
 
 automation: !include automations.yaml
 camera: !include cameras.yaml
+cloud: !include cloud.yaml
 device_tracker: !include device_tracker.yaml
 group: !include groups.yaml
 input_boolean: !include input_booleans.yaml
