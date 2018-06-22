@@ -222,7 +222,6 @@ office_switches:
   name: Switches
   control: hidden
   entities:
-    - input_boolean.working_from_home
     - switch.office_camera_switch
     - switch.update_home_assistant
     - switch.wake_adams_pc
@@ -242,12 +241,6 @@ pi_stats:
     - sensor.ram_free
     - sensor.since_last_boot
     - sensor.log_db_file_size
-
-travel_sensors:
-  name: Sensors
-  entities:
-    - sensor.time_to_work      
-    - sensor.time_to_hockey_training
 
 weather:
   name: Weather
