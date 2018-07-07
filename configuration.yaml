@@ -74,7 +74,7 @@ camera: !include cameras.yaml
 cloud: !include cloud.yaml
 device_tracker: !include device_tracker.yaml
 group: !include groups.yaml
-input_boolean: !include input_booleans.yaml
+# input_boolean: !include input_booleans.yaml
 input_number: !include input_numbers.yaml
 media_player: !include media_players.yaml
 notify: !include notifiers.yaml
