@@ -130,8 +130,6 @@
   action:
     - service: light.turn_on
       entity_id: light.living_room
-    - service: light.turn_on
-      entity_id: light.stairs_light
     # - service: notify.pushbullet
     #   data:
     #     message: "Living room and stairs lights turned on"
@@ -297,17 +295,17 @@
     #   data:
     #     message: "Stairs light turned on"
 
-- id: landing_lights_off_pm
-  alias: Turn off landing lights at night
-  trigger:
-    platform: time
-    at: '22:30:00'
-  action:
-    - service: light.turn_off
-      entity_id: light.stairs_light
-    # - service: notify.pushbullet
-    #   data:
-    #     message: "All lights turned off"
+# - id: landing_lights_off_pm
+#   alias: Turn off landing lights at night
+#   trigger:
+#     platform: time
+#     at: '22:30:00'
+#   action:
+#     - service: light.turn_off
+#       entity_id: light.stairs_light
+#     # - service: notify.pushbullet
+#     #   data:
+#     #     message: "All lights turned off"
 
 # - id: living_room_brightness_sync
 #   alias: Sync living room brightness
