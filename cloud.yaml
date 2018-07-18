@@ -3,10 +3,11 @@ google_actions:
     include_entities:
       - switch.wake_adams_pc
     exclude_entities:
-      - light.entertainment_area_1
       - light.landing
       - light.living_room
+      - light.living_room_entertainment_area
       - light.office
+      - light.office_entertainment_area
       - switch.update_home_assistant
     exclude_domains:
       - group

@@ -29,6 +29,14 @@ kitchen:
   entities:
     - media_player.kitchen_home_mini
 
+landing:
+  name: landing
+  view: true
+  icon: mdi:stairs
+  entities:
+    - group.landing_lights
+    - group.landing_sensors
+
 living_room:
   name: Living Room
   view: true
@@ -165,6 +173,16 @@ living_room_devices:
     - sensor.steam_link
     - sensor.router
     - device_tracker.nintendo_switch
+
+landing_lights:
+  name: Lights
+  entities:
+    - light.stairs_light
+
+landing_sensors:
+  name: Sensors
+  entities:
+    - sensor.stairs_motion_sensor
 
 living_room_lights:
   name: Lights

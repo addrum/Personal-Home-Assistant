@@ -63,8 +63,6 @@ google:
   client_id: !secret google_client_id 
   client_secret: !secret google_client_secret 
 
-ios:
-
 light:
   - platform: hue
     host: 192.168.0.12

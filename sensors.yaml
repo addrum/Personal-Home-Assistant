@@ -11,6 +11,10 @@
   unit_of_measurement: 'MB'
   value_template: '{{ value | int - 1 }}'
 
+- platform: hue
+  ip_address: 192.168.0.12
+  token: gzuv4LcdQIquDcxRTHSOMvaoQfxhJAToPJ4pKKEy
+
 - platform: london_underground
   line:
     - Bakerloo
