@@ -225,7 +225,7 @@
   trigger:
     - platform: sun
       event: sunset
-      offset: "-00:30:00"
+      offset: "-01:00:00"
     - platform: state
       entity_id: group.adams_devices
       to: 'home'
@@ -234,7 +234,7 @@
     conditions:
       - condition: sun
         after: sunset
-        after_offset: "-00:30:00"
+        after_offset: "-01:00:00"
       - condition: state
         entity_id: group.adams_devices
         state: 'home'
@@ -250,7 +250,7 @@
   trigger:
     - platform: sun
       event: sunset
-      offset: "-00:30:00"
+      offset: "-01:00:00"
     - platform: state
       entity_id: group.family_devices
       to: 'home'
@@ -259,7 +259,7 @@
     conditions:
       - condition: sun
         after: sunset
-        after_offset: "-00:30:00"
+        after_offset: "-01:00:00"
       - condition: state
         entity_id: group.family_devices
         state: 'home'
@@ -275,7 +275,7 @@
   trigger:
     - platform: sun
       event: sunset
-      offset: "-00:30:00"
+      offset: "-01:00:00"
     - platform: state
       entity_id: group.family_devices
       to: 'home'
@@ -284,7 +284,7 @@
     conditions:
       - condition: sun
         after: sunset
-        after_offset: "-00:30:00"
+        after_offset: "-01:00:00"
       - condition: state
         entity_id: group.family_devices
         state: 'home'
