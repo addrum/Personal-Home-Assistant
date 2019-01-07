@@ -60,7 +60,6 @@ office:
     - group.office_devices
     - group.office_lights
     - group.office_sensors
-    - group.pi_stats
     - group.office_steam_sensors
     - group.office_switches
     # - camera.office_camera
@@ -73,7 +72,6 @@ stats:
   icon: mdi:poll
   entities:
     - group.bitcoin_stats
-    - group.pi_stats
     - group.pi_hole_stats 
 
 toggles:
@@ -250,15 +248,6 @@ pi_hole_stats:
     - sensor.pihole_ads_blocked_today
     - sensor.pihole_ads_percentage_blocked_today
     - sensor.pihole_dns_queries_today      
-
-pi_stats:
-  name: Pi Stats
-  entities:
-    - sensor.cpu_use
-    - sensor.disk_use_home
-    - sensor.ram_free
-    - sensor.since_last_boot
-    - sensor.log_db_file_size
 
 weather:
   name: Weather
