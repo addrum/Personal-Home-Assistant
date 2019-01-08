@@ -94,8 +94,7 @@ travel:
 # Groups
 adams_devices:
   entities:
-    - device_tracker.adams_phone_bt
-    - device_tracker.adams_phone_wifi
+    - device_tracker.adams_iphone_wifi
 
 all_input_booleans:
   entities:
@@ -112,7 +111,6 @@ bitcoin_stats:
 catherines_devices:
   entities:
     # ios device
-    - device_tracker.catherines_iphone_bt
     - device_tracker.catherines_iphone_wifi
 
 date_time:
