@@ -142,12 +142,13 @@ family_devices:
 home_devices:
   name: Home Devices
   entities:
-    - device_tracker.adams_pc
-    - device_tracker.chromecast
-    - device_tracker.kitchen_home_mini
-    - device_tracker.living_room_home
-    - device_tracker.office_home_mini
-    - device_tracker.router
+    - sensor.adams_pc
+    - sensor.chromecast
+    - sensor.kitchen_home_mini
+    - sensor.living_room_home
+    - sensor.office_home_mini
+    - sensor.router
+    - sensor.steam_link
 
 light_groups:
   name: Lights
