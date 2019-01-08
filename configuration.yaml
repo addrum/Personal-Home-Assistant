@@ -67,6 +67,8 @@ light:
   - platform: hue
     host: 192.168.0.12
 
+ios:
+
 automation: !include automations.yaml
 camera: !include cameras.yaml
 cloud: !include cloud.yaml
