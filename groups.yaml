@@ -21,6 +21,13 @@ devices:
     - group.home_devices
     - group.all_devices
 
+bedroom:
+  name: Bedroom
+  view: true
+  icon: mdi:bed-empty
+  entities:
+    - media_player.googlehome8580
+
 kitchen:
   name: kitchen
   view: true
@@ -149,18 +156,18 @@ light_groups:
     - light.living_room
     - light.office
 
+landing_lights:
+  name: Lights
+  entities:
+    - light.landing
+    - light.stairs_light
+
 living_room_devices:
   name: Devices
   entities:
     - sensor.steam_link
     - sensor.router
     - device_tracker.nintendo_switch
-
-landing_lights:
-  name: Lights
-  entities:
-    - light.landing
-    - light.stairs_light
 
 living_room_lights:
   name: Lights
@@ -197,7 +204,8 @@ london_underground_status:
 office_devices:
   name: Devices
   entities:
-    - device_tracker.adams_pc
+    - sensor.adams_pc
+    - sensor.printer
     - device_tracker.nintendo_switch
 
 office_lights:
