@@ -19,7 +19,6 @@ devices:
   entities:
     - group.family
     - group.home_devices
-    - group.visitor_devices
     - group.all_devices
 
 kitchen:
@@ -35,7 +34,6 @@ landing:
   icon: mdi:stairs
   entities:
     - group.landing_lights
-    - group.landing_sensors
 
 living_room:
   name: Living Room
@@ -131,30 +129,18 @@ calendars:
 family_devices:
   name: Family Devices
   entities:
-    - group.adams_devices
-    - group.catherines_devices
-
-family:
-  name: Family      
-  entities:
-    - device_tracker.adams_phone_bt
-    - device_tracker.catherines_iphone_bt
+    - device_tracker.adams_iphone_wifi
+    - device_tracker.catherines_iphone_wifi
 
 home_devices:
   name: Home Devices
   entities:
-    - device_tracker.adams_moto_360
-    - device_tracker.adams_nexus_9_bt
-    - device_tracker.catherines_macbook_pro
-    - device_tracker.nexus_5
-    - sensor.adams_pc
-    - sensor.kitchen_home_mini
-    - sensor.laptop
-    - sensor.living_room_home
-    - sensor.office_home_mini
-    - sensor.printer
-    - sensor.router
-    - sensor.steam_link
+    - device_tracker.adams_pc
+    - device_tracker.chromecast
+    - device_tracker.kitchen_home_mini
+    - device_tracker.living_room_home
+    - device_tracker.office_home_mini
+    - device_tracker.router
 
 light_groups:
   name: Lights
@@ -173,16 +159,13 @@ living_room_devices:
 landing_lights:
   name: Lights
   entities:
+    - light.landing
     - light.stairs_light
-
-landing_sensors:
-  name: Sensors
-  entities:
-    - sensor.stairs_motion_sensor
 
 living_room_lights:
   name: Lights
   entities:
+    - light.living_room
     - input_number.brightness_living_room
     - light.black_lamp
     - light.catherines_desk_lamp
@@ -214,15 +197,13 @@ london_underground_status:
 office_devices:
   name: Devices
   entities:
-    - sensor.adams_pc
-    - sensor.adams_laptop
-    - sensor.printer
+    - device_tracker.adams_pc
     - device_tracker.nintendo_switch
-    - device_tracker.adams_nexus_9_bt
 
 office_lights:
   name: Lights
   entities:
+    - light.office
     - input_number.brightness_office
     - light.desk_lightstrip
 
