@@ -71,7 +71,7 @@ ios:
 
 automation: !include automations.yaml
 camera: !include cameras.yaml
-cloud: !include cloud.yaml
+#cloud: !include cloud.yaml
 device_tracker: !include device_tracker.yaml
 group: !include groups.yaml
 # input_boolean: !include input_booleans.yaml
