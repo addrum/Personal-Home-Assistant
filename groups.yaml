@@ -100,6 +100,7 @@ travel:
 adams_devices:
   entities:
     - device_tracker.adams_iphone_wifi
+    - device_tracker.adams_iphone
 
 all_input_booleans:
   entities:

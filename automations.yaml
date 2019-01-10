@@ -204,93 +204,93 @@
     #   data:
     #     message: "All lights turned off"   
 
-- id: lights_off_away
-  alias: Turn off all lights if no one is home
-  trigger:
-    - platform: state
-      entity_id: group.family_devices
-      to: 'not_home'
-  condition:  
-    - condition: state
-      entity_id: group.all_lights
-      state: 'on'
-  action:
-    - service: light.turn_off
-      entity_id: group.all_lights
-    # - service: notify.pushbullet
-    #   data:
-    #     message: "Turned all lights off as no one is home"
+# - id: lights_off_away
+#   alias: Turn off all lights if no one is home
+#   trigger:
+#     - platform: state
+#       entity_id: group.family_devices
+#       to: 'not_home'
+#   condition:  
+#     - condition: state
+#       entity_id: group.all_lights
+#       state: 'on'
+#   action:
+#     - service: light.turn_off
+#       entity_id: group.all_lights
+#     # - service: notify.pushbullet
+#     #   data:
+#     #     message: "Turned all lights off as no one is home"
 
-- alias: Turn office lights on at sunset if Adam is home
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: "-01:00:00"
-    - platform: state
-      entity_id: group.adams_devices
-      to: 'home'
-  condition:  
-    condition: and
-    conditions:
-      - condition: sun
-        after: sunset
-        after_offset: "-01:00:00"
-      - condition: state
-        entity_id: group.adams_devices
-        state: 'home'
-  action:
-    - service: light.turn_on
-      entity_id: light.office
-    # - service: notify.pushbullet
-    #   data:
-    #     message: "Office lights turned on"
+# - alias: Turn office lights on at sunset if Adam is home
+#   trigger:
+#     - platform: sun
+#       event: sunset
+#       offset: "-01:00:00"
+#     - platform: state
+#       entity_id: group.adams_devices
+#       to: 'home'
+#   condition:  
+#     condition: and
+#     conditions:
+#       - condition: sun
+#         after: sunset
+#         after_offset: "-01:00:00"
+#       - condition: state
+#         entity_id: group.adams_devices
+#         state: 'home'
+#   action:
+#     - service: light.turn_on
+#       entity_id: light.office
+#     # - service: notify.pushbullet
+#     #   data:
+#     #     message: "Office lights turned on"
 
-- id: living_room_lights_on_pm_home
-  alias: Turn living room lights on at sunset if someone is home
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: "-01:00:00"
-    - platform: state
-      entity_id: group.family_devices
-      to: 'home'
-  condition:  
-    condition: and
-    conditions:
-      - condition: sun
-        after: sunset
-        after_offset: "-01:00:00"
-      - condition: state
-        entity_id: group.family_devices
-        state: 'home'
-  action:
-    - service: light.turn_on
-      entity_id: light.living_room
-    # - service: notify.pushbullet
-    #   data:
-    #     message: "Living room lights turned on"
+# - id: living_room_lights_on_pm_home
+#   alias: Turn living room lights on at sunset if someone is home
+#   trigger:
+#     - platform: sun
+#       event: sunset
+#       offset: "-01:00:00"
+#     - platform: state
+#       entity_id: group.family_devices
+#       to: 'home'
+#   condition:  
+#     condition: and
+#     conditions:
+#       - condition: sun
+#         after: sunset
+#         after_offset: "-01:00:00"
+#       - condition: state
+#         entity_id: group.family_devices
+#         state: 'home'
+#   action:
+#     - service: light.turn_on
+#       entity_id: light.living_room
+#     # - service: notify.pushbullet
+#     #   data:
+#     #     message: "Living room lights turned on"
 
-- id: landing_lights_on_pm_home
-  alias: Turn stairs light on when someone gets home
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: "-01:00:00"
-    - platform: state
-      entity_id: group.family_devices
-      to: 'home'
-  condition:  
-    condition: and
-    conditions:
-      - condition: sun
-        after: sunset
-        after_offset: "-01:00:00"
-      - condition: state
-        entity_id: group.family_devices
-        state: 'home'
-  action:
-    - service: light.turn_on
-      entity_id: light.landing
+# - id: landing_lights_on_pm_home
+#   alias: Turn stairs light on when someone gets home
+#   trigger:
+#     - platform: sun
+#       event: sunset
+#       offset: "-01:00:00"
+#     - platform: state
+#       entity_id: group.family_devices
+#       to: 'home'
+#   condition:  
+#     condition: and
+#     conditions:
+#       - condition: sun
+#         after: sunset
+#         after_offset: "-01:00:00"
+#       - condition: state
+#         entity_id: group.family_devices
+#         state: 'home'
+#   action:
+#     - service: light.turn_on
+#       entity_id: light.landing
     # - service: notify.pushbullet
     #   data:
     #     message: "Stairs light turned on"
