@@ -2,7 +2,7 @@
   hosts: 192.168.0.1-255
   home_interval: 350
   scan_options: " -PS135,445 -F --host-timeout 5s"
-  interval_seconds: 300
+  interval_seconds: 1800
   exclude:
     - 192.168.0.12 # Hue Bridge
     - 192.168.0.15 # Chromecast
